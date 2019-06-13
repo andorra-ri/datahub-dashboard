@@ -130,6 +130,19 @@
 						</section>
 					</div>
 				</div>
+				<div class="row">
+					<div class="column col-8">
+						<section class="card card--round">
+							<h2>Calendars</h2>
+							<calendar />
+							<calendar :not-after="new Date()" range />
+						</section>
+					</div>
+					<div class="column col-4">
+						<section class="card card--round">
+						</section>
+					</div>
+				</div>
 			</div>
 		</main>
 	</div>
@@ -137,9 +150,11 @@
 
 <script>
 import Dropdown from '@/components/Dropdown.vue';
+import Calendar from '@/components/Calendar.vue';
+
 export default {
 	name: 'tourism',
-	components: { Dropdown },
+	components: { Dropdown, Calendar },
 	data() {
 		return {
 			frameworks: [
