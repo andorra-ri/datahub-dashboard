@@ -1,0 +1,36 @@
+#app {
+	background: #eaedf1;
+	display: flex;
+	font: $base__font-size $base__font-family, sans-serif;
+}
+
+.screen {
+	display: flex;
+	flex: auto;
+	height: 100vh;
+
+	.content {
+		box-sizing: border-box;
+		flex: auto;
+		height: 100%;
+		overflow: auto;
+		padding: 20px 30px;
+
+		.header { margin: 20px; }
+	}
+
+	.sidebar {
+		box-sizing: border-box;
+		flex: 0 0 325px;
+		height: 100%;
+		overflow: auto;
+		padding: 30px;
+	}
+}
+
+.card {
+	background: #fff;
+	padding: 25px;
+
+	&--round { border-radius: 5px; }
+}
