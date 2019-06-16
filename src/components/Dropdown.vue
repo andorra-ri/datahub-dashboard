@@ -1,23 +1,20 @@
 <template>
 	<div class="dropdown">
-		<a href="#" tabindex="0" @click.prevent :class="toggleClasses">
+		<label :class="['input', { 'selected': value, 'disabled': disabled }]">
 			<i v-if="selected.icon" :class="`icon ${selected.icon}`" />
-			{{ selected.label }}
-			<i class="chevron mdi mdi-chevron-down"></i>
-		</a>
-		<ul class="dropdown__options">
-			<div v-if="searchable" class="dropdown__search">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon">
-					<circle cx="11" cy="11" r="8" />
-					<line x1="21" y1="21" x2="16.65" y2="16.65" />
-				</svg>
-				<input type="text" v-model="search" />
-			</div>
-			<li v-for="option in filteredOptions" :key="option.label" @click="select(option)">
-				<i v-if="option.icon" :class="`icon ${option.icon}`" />
-				{{ option.label }}
-			</li>
-		</ul>
+			<input
+				type="text"
+				:placeholder="selected.label"
+				v-model="search"
+				:readonly="!searchable" />
+			<i :class="`icon mdi mdi-${isClearable ? 'close' : 'chevron-down'}`" @click="clear()" />
+			<ul v-if="!disabled" class="dropdown__options">
+				<li v-for="option in filteredOptions" :key="option.label" @click="select(option)">
+					<i v-if="option.icon" :class="`icon ${option.icon}`" />
+					{{ option.label }}
+				</li>
+			</ul>
+		</label>
 	</div>
 </template>
 
@@ -31,17 +28,16 @@ export default {
 		value: { required: true },
 		placeholder: { type: String, default: 'Select...' },
 		searchable: { type: Boolean, default: false },
+		disabled: { type: Boolean, default: false },
+		clearable: { type: Boolean, default: false },
 	},
 	data() {
 		return { search: undefined };
 	},
 	computed: {
 		selected() {
-			return this.options.find(({ value }) => this.value === value)
-				|| { label: this.placeholder };
-		},
-		toggleClasses() {
-			return ['dropdown__toggle', { 'dropdown__toggle--selected': this.value }];
+			const selected = this.options.find(({ value }) => this.value === value);
+			return selected || { label: this.placeholder };
 		},
 		filteredOptions() {
 			const search = this.search && normalize(this.search);
@@ -49,9 +45,14 @@ export default {
 				? this.options.filter(({ label }) => normalize(label).includes(search))
 				: this.options;
 		},
+		isClearable() { return this.clearable && this.value; },
 	},
 	methods: {
+		clear() {
+			if (this.isClearable) this.select({ value: undefined });
+		},
 		select({ value }) {
+			this.search = '';
 			this.$emit('input', value);
 		},
 	},
@@ -62,30 +63,16 @@ export default {
 .dropdown {
 	display: inline-block;
 	position: relative;
-	vertical-align: middle;
 
-	&__toggle {
-		align-items: center;
-		background: #fff;
-		border: 1px solid #a5acb6;
-		border-radius: 3px;
-		color: #aaaaaa;
-		display: flex;
-		line-height: 30px;
-		margin: 2px;
-		min-width: 150px;
-		outline: 0;
-		padding: 0 10px;
-		text-decoration: none;
-		white-space: nowrap;
+	// Options
+	.input.selected input::placeholder { color: inherit; }
 
-		&--selected { color: #000 !important; }
-		.chevron {
-			margin-left: auto;
-			padding-left: 5px;
-		}
+	&.liquid {
+		display: block;
+		.input { width: 100%; }
 	}
 
+	// Components
 	&__options {
 		background: #fff;
 		border: 1px solid #a5acb6;
@@ -93,69 +80,38 @@ export default {
 		// box-shadow: 0 0 10px rgba(#000000, 0.1);
 		display: none;
 		left: 2px;
-		min-width: 170px;
+		min-width: 150px;
 		max-height: 193px;
 		overflow: auto;
+		padding: 5px;
 		position: absolute;
 		top: 100%;
 		z-index: 1;
 
-		&:hover,
-		:focus + & { display: block; }
-
+		// Components
 		li {
 			align-items: center;
 			border-radius: 3px;
 			color: inherit;
 			cursor: pointer;
 			display: flex;
-			line-height: 1.3em;
-			padding: 7px 12px;
+			line-height: inherit;
+			padding: 0 12px;
 			white-space: nowrap;
-			margin: 0 5px;
 
-			&:first-of-type { margin-top: 5px; }
-			&:last-of-type { margin-bottom: 5px; }
+			// Components
+			.icon { margin-left: 0; }
 
+			// State
 			&:hover {
 				background: #461ea3;
 				color: #fff;
 			}
 		}
+
+		// State
+		&:hover,
+		:focus ~ & { display: block; }
 	}
-
-	&__search {
-		align-items: center;
-		background: #fff;
-		color: #a5acb6;
-		border-bottom: 1px solid #a5acb6;
-		display: flex;
-		font-size: 0.9em;
-		padding: 5px;
-		position: sticky;
-		top: 0;
-
-		input {
-			appearance: none;
-			border: 0;
-			color: inherit;
-			flex: 1;
-			font-size: inherit;
-			line-height: 1.5em;
-			outline: 0;
-		}
-
-		.icon {
-			height: 14px;
-			width: 14px;
-			fill: none;
-			stroke: currentColor;
-			stroke-width: 2;
-			margin: 0 5px !important;
-		}
-
-	}
-
-	.icon { margin-right: 7px }
 }
 </style>

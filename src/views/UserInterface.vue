@@ -93,11 +93,26 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="column col-2">
-										<dropdown v-model="framework" :options="frameworks" />
+									<div class="column col-3">
+										<dropdown
+											v-model="framework"
+											:options="frameworks"
+											class="liquid" />
 									</div>
-									<div class="column col-2">
-										<dropdown v-model="country" :options="countries" searchable />
+									<div class="column col-3">
+										<dropdown
+											v-model="country"
+											:options="countries"
+											class="liquid"
+											searchable
+											clearable />
+									</div>
+									<div class="column col-3">
+										<dropdown
+											v-model="framework"
+											:options="frameworks"
+											class="liquid"
+											disabled />
 									</div>
 								</div>
 								<div class="row">
