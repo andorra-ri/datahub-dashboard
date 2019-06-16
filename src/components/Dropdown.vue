@@ -13,6 +13,7 @@
 					<i v-if="option.icon" :class="`icon ${option.icon}`" />
 					{{ option.label }}
 				</li>
+				<p v-if="!filteredOptions.length" class="no-options">No results found</p>
 			</ul>
 		</label>
 	</div>
@@ -108,6 +109,8 @@ export default {
 				color: #fff;
 			}
 		}
+
+		.no-options { padding: 0 12px; }
 
 		// State
 		&:hover,
