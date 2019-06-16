@@ -67,7 +67,7 @@ export default {
 	// Options
 	.input.selected input::placeholder { color: inherit; }
 
-	&.liquid {
+	&.fluid {
 		display: block;
 		.input { width: 100%; }
 	}

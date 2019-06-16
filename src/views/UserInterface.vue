@@ -39,53 +39,53 @@
 							<form class="grid">
 								<div class="row">
 									<div class="column col-3">
-										<label class="input liquid">
+										<label class="input fluid">
 											<input type="text" placeholder="Input" />
 										</label>
 									</div>
 									<div class="column col-3">
-										<label class="input liquid">
+										<label class="input fluid">
 											<input type="text" placeholder="Focused" autofocus/>
 										</label>
 									</div>
 									<div class="column col-3">
-										<label class="input liquid invalid">
+										<label class="input fluid invalid">
 											<input type="text" placeholder="Invalid" required />
 										</label>
 									</div>
 									<div class="column col-3">
-										<label class="input liquid disabled">
+										<label class="input fluid disabled">
 											<input type="text" placeholder="Disabled" />
 										</label>
 									</div>
 								</div>
 								<div class="row">
 									<div class="column col-2">
-										<label class="input liquid">
+										<label class="input fluid">
 											<i class="icon mdi mdi-arrow-down-bold-box"></i>
 											<input type="text" placeholder="Icon" />
 										</label>
 									</div>
 									<div class="column col-2">
-										<label class="input liquid">
+										<label class="input fluid">
 											<input type="text" placeholder="Icon" />
 											<i class="icon mdi mdi-arrow-down-bold-box"></i>
 										</label>
 									</div>
 									<div class="column col-3">
-										<label class="input liquid">
+										<label class="input fluid">
 											<span class="label">http://</span>
 											<input type="text" placeholder="Label" />
 										</label>
 									</div>
 									<div class="column col-2">
-										<label class="input liquid">
+										<label class="input fluid">
 											<input type="text" placeholder="Label" />
 											<span class="label">&euro;</span>
 										</label>
 									</div>
 									<div class="column col-3">
-										<label class="input liquid">
+										<label class="input fluid">
 											<span class="label">&euro;</span>
 											<i class="icon mdi mdi-arrow-down-bold-box"></i>
 											<input type="text" placeholder="Icon + Label" />
@@ -97,13 +97,13 @@
 										<dropdown
 											v-model="framework"
 											:options="frameworks"
-											class="liquid" />
+											class="fluid" />
 									</div>
 									<div class="column col-3">
 										<dropdown
 											v-model="country"
 											:options="countries"
-											class="liquid"
+											class="fluid"
 											searchable
 											clearable />
 									</div>
@@ -111,7 +111,7 @@
 										<dropdown
 											v-model="framework"
 											:options="frameworks"
-											class="liquid"
+											class="fluid"
 											disabled />
 									</div>
 								</div>
