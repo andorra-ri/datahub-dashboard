@@ -101,13 +101,12 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="column col-2">
+									<div class="column col-4">
 										<label><input type="checkbox" checked> WiFi</label>
-										<label><input type="checkbox"> Bluetooth</label>
-										<label><input type="checkbox" disabled> LoRa</label>
-										<label><input type="checkbox"> ZigBee</label>
+										<label><input type="checkbox"> LoRa</label>
+										<label><input type="checkbox" disabled> ZigBee</label>
 									</div>
-									<div class="column col-2">
+									<div class="column col-4">
 										<label>
 											<input type="radio" v-model="radio" value="good">
 											Good
@@ -121,42 +120,18 @@
 											Fast
 										</label>
 									</div>
-									<div class="column col-2">
+									<div class="column col-4">
 										<label>
-											<span class="toggle">
-												<input type="checkbox" radio="">
-											</span>
+											<span class="switch"><input type="checkbox"></span>
 											WiFi
 										</label>
 										<label>
-											<span class="toggle"><input type="checkbox"></span>
-											Bluetooth
-										</label>
-										<label>
-											<span class="toggle">
-												<input type="checkbox" disabled>
-											</span>
+											<span class="switch"><input type="checkbox"></span>
 											LoRa
 										</label>
-									</div>
-									<div class="column col-2">
 										<label>
-											<span class="toggle">
-												<input type="radio" v-model="radio" value="good">
-											</span>
-											Good
-										</label>
-										<label>
-											<span class="toggle">
-												<input type="radio" v-model="radio" value="cheap">
-											</span>
-											Cheap
-										</label>
-										<label>
-											<span class="toggle">
-												<input type="radio" v-model="radio" value="fast">
-											</span>
-											Fast
+											<span class="switch"><input type="checkbox" disabled /></span>
+											ZigBee
 										</label>
 									</div>
 								</div>
