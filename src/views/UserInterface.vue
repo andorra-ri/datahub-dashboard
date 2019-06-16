@@ -36,27 +36,61 @@
 					<div class="column">
 						<section class="card card--round">
 							<h2>Forms</h2>
-							<div class="grid">
+							<form class="grid">
 								<div class="row">
-									<label class="column">
-										<input type="text" placeholder="Input" />
-									</label>
-									<label class="column">
-										<i class="icon mdi mdi-arrow-down-bold-box" />
-										<input type="text" placeholder="Input" />
-									</label>
-									<label class="column">
-										<input type="text" placeholder="Input" />
-										<i class="icon mdi mdi-arrow-down-bold-box" />
-									</label>
-									<label class="column">
-										<span class="label">http://</span>
-										<input type="text" placeholder="Input" />
-									</label>
-									<label class="column">
-										<input type="text" placeholder="Input" />
-										<span class="label">&euro;</span>
-									</label>
+									<div class="column col-3">
+										<label class="input liquid">
+											<input type="text" placeholder="Input" />
+										</label>
+									</div>
+									<div class="column col-3">
+										<label class="input liquid">
+											<input type="text" placeholder="Focused" autofocus/>
+										</label>
+									</div>
+									<div class="column col-3">
+										<label class="input liquid invalid">
+											<input type="text" placeholder="Invalid" required />
+										</label>
+									</div>
+									<div class="column col-3">
+										<label class="input liquid disabled">
+											<input type="text" placeholder="Disabled" />
+										</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="column col-2">
+										<label class="input liquid">
+											<i class="icon mdi mdi-arrow-down-bold-box"></i>
+											<input type="text" placeholder="Icon" />
+										</label>
+									</div>
+									<div class="column col-2">
+										<label class="input liquid">
+											<input type="text" placeholder="Icon" />
+											<i class="icon mdi mdi-arrow-down-bold-box"></i>
+										</label>
+									</div>
+									<div class="column col-3">
+										<label class="input liquid">
+											<span class="label">http://</span>
+											<input type="text" placeholder="Label" />
+										</label>
+									</div>
+									<div class="column col-2">
+										<label class="input liquid">
+											<input type="text" placeholder="Label" />
+											<span class="label">&euro;</span>
+										</label>
+									</div>
+									<div class="column col-3">
+										<label class="input liquid">
+											<span class="label">&euro;</span>
+											<i class="icon mdi mdi-arrow-down-bold-box"></i>
+											<input type="text" placeholder="Icon + Label" />
+										</label>
+									</div>
 								</div>
 								<div class="row">
 									<div class="column col-2">
@@ -126,7 +160,7 @@
 										</label>
 									</div>
 								</div>
-							</div>
+							</form>
 						</section>
 					</div>
 				</div>

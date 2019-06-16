@@ -22,90 +22,74 @@ input[type=radio] {
 input[type=radio] { border-radius: 50%; } // stylelint-disable-line
 
 label {
-	align-items: center;
-	display: inline-flex;
 	margin: 2px;
-	vertical-align: middle;
+	display: inline-block;
+	white-space: nowrap;
 
-	input[type=text],
-	input[type=password],
-	input[type=email],
-	input[type=tel],
-	input[type=number] {
-		appearance: none;
+	// Options
+	&.liquid {
+		margin: 0;
+		width: 100% !important;
+	}
+
+	&.input {
+		align-items: center;
+		background: #fff;
 		border: 1px solid #a5acb6;
 		border-radius: 3px;
-		flex: auto;
-		font-family: inherit;
-		font-size: inherit;
-		height: 30px;
+		display: inline-flex;
 		line-height: 30px;
-		margin: 0;
-		outline: 0;
-		padding: 0 10px;
-		width: 100%;
+		overflow: hidden;
+		vertical-align: middle;
+		width: 200px;
 
-		&:not(:only-child):first-child {
-			border-bottom-right-radius: 0;
-			border-right: 0;
-			border-top-right-radius: 0;
-			padding-right: 0;
-
-			& + .icon {
-				border: 1px solid #a5acb6;
-				border-bottom-right-radius: 3px;
-				border-left: 0;
-				border-top-right-radius: 3px;
-			}
-
-			& + .label {
-				border: 1px solid #a5acb6;
-				border-bottom-right-radius: 3px;
-				border-top-right-radius: 3px;
-			}
+		// Components
+		input {
+			appearance: none;
+			background: transparent;
+			border: 0;
+			flex: auto;
+			font: inherit;
+			line-height: inherit;
+			margin: 0;
+			outline: 0;
+			padding: 0 10px;
+			width: 100%;
 		}
-	}
 
-	.icon {
-		color: #a5acb6;
-		display: inline-block;
-		font-size: 1.2em;
-		height: 30px;
-		line-height: 30px;
-		padding: 0 10px;
+		.icon {
+			line-height: 0;
+			font-size: 1.2em;
+			padding: 0 7px;
 
-		&:first-child {
-			border: 1px solid #a5acb6;
-			border-bottom-left-radius: 3px;
-			border-right: 0;
-			border-top-left-radius: 3px;
-
-			& + input {
-				border-bottom-left-radius: 0;
-				border-left: 0;
-				border-top-left-radius: 0;
-				padding-left: 0;
-			}
+			& + input { padding-left: 0; }
 		}
-	}
 
-	.label { // stylelint-disable-line
-		background: #ebedee;
-		color: #a5acb6;
-		display: inline-block;
-		height: 30px;
-		line-height: 30px;
-		padding: 0 10px;
+		.label {
+			background: #ebedee;
+			color: #a5acb6;
+			flex: auto;
+			font-size: 0.9em;
+			line-height: inherit;
+			padding: 0 10px;
 
-		&:first-child { // stylelint-disable-line
-			border: 1px solid #a5acb6;
-			border-bottom-left-radius: 3px;
-			border-top-left-radius: 3px;
+			&:not(:last-child) { border-right: 1px solid currentColor; }
+			&:not(:first-child) { border-left: 1px solid currentColor; }
+		}
 
-			& + input {
-				border-bottom-left-radius: 0;
-				border-left: 0;
-				border-top-left-radius: 0;
+		// State
+		&:focus-within { border-color: #461ea3; }
+		&.invalid { border-color: #f65; }
+
+		&.disabled {
+			background: #ebedee !important;
+			border-color: #ebedee !important;
+			pointer-events: none;
+
+			& *,
+			& *::placeholder {
+				border: none !important;
+				color: darken(#ebedee, 10) !important;
 			}
 		}
 	}
