@@ -10,10 +10,10 @@
 						<section class="card card--round">
 							<h2>Buttons</h2>
 							<button>Settings</button>
-							<button><i class="icon mdi mdi-vuejs" /> Settings</button>
+							<button><i class="icon mdi mdi-settings" /> Settings</button>
 							<button><i class="icon mdi mdi-settings" /></button>
 							<button class="outline">
-								<i class="icon mdi mdi-setting" />
+								<i class="icon mdi mdi-settings" />
 								Settings
 							</button>
 							<button disabled><i class="icon mdi mdi-settings" /> Settings</button>
@@ -29,6 +29,10 @@
 								<button class="outline"><i class="icon mdi mdi-react" /></button>
 								<button class="outline"><i class="icon mdi mdi-codepen" /></button>
 							</fieldset>
+							<button class="danger">Danger</button>
+							<button class="fluid">
+								<i class="icon mdi mdi-settings" /> Settings
+							</button>
 						</section>
 					</div>
 				</div>
@@ -127,6 +131,30 @@
 									</div>
 								</div>
 								<div class="row">
+									<div class="column col-12">
+										<fieldset class="group fluid">
+											<label class="input">
+												<input type="text" placeholder="Input" />
+											</label>
+											<label class="input">
+												<i class="icon mdi mdi-arrow-down-bold-box"></i>
+												<input type="text" placeholder="Icon" />
+											</label>
+											<dropdown
+												v-model="country"
+												:options="countries"
+												class="fluid"
+												placeholder="Country"
+												searchable
+												clearable />
+											<button>
+												<i class="icon mdi mdi-cloud-upload" />
+												Upload
+											</button>
+										</fieldset>
+									</div>
+								</div>
+								<div class="row">
 									<div class="column col-4">
 										<label><input type="checkbox" checked> WiFi</label>
 										<label><input type="checkbox"> LoRa</label>
@@ -159,6 +187,17 @@
 											<span class="switch"><input type="checkbox" disabled /></span>
 											ZigBee
 										</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="column col-12">
+										<input type="submit" value="Upload" class="btn" />
+										<button>
+											<i class="icon mdi mdi-cloud-upload" />
+											Upload
+										</button>
+										<input type="submit" value="Cancel" class="btn outline" />
+										<input type="submit" value="Delete" class="btn danger" />
 									</div>
 								</div>
 							</form>
