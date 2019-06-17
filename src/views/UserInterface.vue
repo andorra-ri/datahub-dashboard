@@ -203,14 +203,14 @@
 							</form>
 						</section>
 					</div>
-				</div>
-				<div class="row">
-					<div class="column col-8">
+					<div class="column col-4">
 						<section class="card card--round">
 							<h2>Calendars</h2>
 							<calendar class="fluid" :not-after="new Date()" range />
 						</section>
 					</div>
+				</div>
+				<div class="row">
 					<div class="column col-4">
 						<section class="card card--round">
 						</section>

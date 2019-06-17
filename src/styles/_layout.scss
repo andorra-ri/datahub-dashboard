@@ -30,7 +30,10 @@
 
 .card {
 	background: #fff;
+	box-sizing: border-box;
 	padding: 25px;
 
 	&--round { border-radius: 5px; }
+
+	.column & { height: 100%; }
 }
