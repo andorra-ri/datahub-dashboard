@@ -63,7 +63,7 @@ label {
 			appearance: none;
 			background: transparent;
 			border: 0;
-			flex: auto;
+			flex: 1;
 			font: inherit;
 			line-height: inherit;
 			margin: 0;
@@ -83,7 +83,7 @@ label {
 		.label {
 			background: #ebedee;
 			color: #a5acb6;
-			flex: auto;
+			flex: 0;
 			font-size: 0.9em;
 			line-height: inherit;
 			padding: 0 10px;

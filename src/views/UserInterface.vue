@@ -104,8 +104,19 @@
 											v-model="country"
 											:options="countries"
 											class="fluid"
+											placeholder="Country"
 											searchable
 											clearable />
+									</div>
+									<div class="column col-3">
+										<dropdown
+											v-model="allies"
+											:options="countries"
+											class="fluid"
+											placeholder="Country"
+											searchable
+											clearable
+											multiple />
 									</div>
 									<div class="column col-3">
 										<dropdown
@@ -199,7 +210,7 @@ export default {
 			],
 			framework: undefined,
 			country: undefined,
-			checkbox: false,
+			allies: [],
 			radio: undefined,
 			date: null,
 		};

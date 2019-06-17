@@ -1,6 +1,6 @@
 <template>
 	<div class="dropdown">
-		<label :class="['input', { 'selected': value, 'disabled': disabled }]">
+		<label :class="['input', { 'input--active': !multiple && value, 'disabled': disabled }]">
 			<i v-if="selected.icon" :class="`icon ${selected.icon}`" />
 			<input
 				type="text"
@@ -16,6 +16,12 @@
 				<p v-if="!filteredOptions.length" class="no-options">No results found</p>
 			</ul>
 		</label>
+		<ul v-if="multiple" class="dropdown__tags">
+			<li v-for="option in value" :key="option.label">
+				{{ option.label }}
+				<i @click="unselect(option)">&times;</i>
+			</li>
+		</ul>
 	</div>
 </template>
 
@@ -31,30 +37,45 @@ export default {
 		searchable: { type: Boolean, default: false },
 		disabled: { type: Boolean, default: false },
 		clearable: { type: Boolean, default: false },
+		multiple: { type: Boolean, default: false },
 	},
 	data() {
 		return { search: undefined };
 	},
 	computed: {
 		selected() {
-			const selected = this.options.find(({ value }) => this.value === value);
-			return selected || { label: this.placeholder };
+			return !this.value || this.multiple ? { label: this.placeholder } : this.value;
 		},
 		filteredOptions() {
 			const search = this.search && normalize(this.search);
-			return search
-				? this.options.filter(({ label }) => normalize(label).includes(search))
-				: this.options;
+			return this.options.filter((option) => {
+				const searchMatch = search ? normalize(option.label).includes(search) : true;
+				return searchMatch && !this.isSelected(option);
+			});
 		},
-		isClearable() { return this.clearable && this.value; },
+		isClearable() {
+			return this.clearable && this.isSelected();
+		},
 	},
 	methods: {
 		clear() {
-			if (this.isClearable) this.select({ value: undefined });
+			if (this.isClearable) {
+				this.search = '';
+				this.$emit('input', this.multiple ? [] : undefined);
+			}
 		},
-		select({ value }) {
+		isSelected(option) {
+			if (!option) return this.multiple ? this.value.length : this.value;
+			return Array.isArray(this.value)
+				? this.value.find(({ label }) => label === option.label)
+				: this.value && this.value.label === option.label;
+		},
+		select(option) {
 			this.search = '';
-			this.$emit('input', value);
+			this.$emit('input', this.multiple ? [...new Set([...this.value, option])] : option);
+		},
+		unselect(option) {
+			this.$emit('input', this.value.filter(({ value }) => value !== option.value));
 		},
 	},
 };
@@ -63,10 +84,13 @@ export default {
 <style lang="scss" scoped>
 .dropdown {
 	display: inline-block;
-	position: relative;
 
 	// Options
-	.input.selected input::placeholder { color: inherit; }
+	.input {
+		position: relative;
+		overflow: visible;
+		&--active input::placeholder { color: inherit; }
+	}
 
 	&.fluid {
 		display: block;
@@ -80,9 +104,10 @@ export default {
 		border-radius: 5px;
 		// box-shadow: 0 0 10px rgba(#000000, 0.1);
 		display: none;
-		left: 2px;
-		min-width: 150px;
+		left: 0;
+		margin-top: 3px;
 		max-height: 193px;
+		min-width: 150px;
 		overflow: auto;
 		padding: 5px;
 		position: absolute;
@@ -115,6 +140,30 @@ export default {
 		// State
 		&:hover,
 		:focus ~ & { display: block; }
+	}
+
+	&__tags {
+		display: flex;
+		flex-wrap: wrap;
+
+		li {
+			flex: 0;
+			background: lighten(#461ea3, 50);
+			color: #461ea3;
+			display: inline-block;
+			padding: 5px 7px;
+			font-size: 0.9em;
+			margin: 2px;
+			line-height: 1em;
+			border-radius: 3px;
+			white-space: nowrap;
+
+			i {
+				font-weight: bold;
+				margin-left: 5px;
+				cursor: pointer;
+			}
+		}
 	}
 }
 </style>
