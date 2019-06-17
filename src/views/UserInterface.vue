@@ -208,8 +208,7 @@
 					<div class="column col-8">
 						<section class="card card--round">
 							<h2>Calendars</h2>
-							<calendar />
-							<calendar :not-after="new Date()" range />
+							<calendar class="fluid" :not-after="new Date()" range />
 						</section>
 					</div>
 					<div class="column col-4">

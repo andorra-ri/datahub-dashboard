@@ -128,6 +128,8 @@ export default {
 	margin: 2px;
 	padding: 10px;
 
+	&.fluid { display: block; }
+
 	&__header {
 		font-weight: 700;
 		padding: 15px 0;
