@@ -10,6 +10,7 @@
 
 <script>
 import ApexChart from 'vue-apexcharts';
+import { apexOptions, mergeDeep } from '@/utils/charts/apexOptions';
 
 export default {
 	name: 'user-interface-charts',
