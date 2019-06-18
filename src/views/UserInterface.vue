@@ -19,9 +19,8 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="column col-4">
-						<section class="card card--round">
-						</section>
+					<div class="column">
+						<user-interface-charts />
 					</div>
 				</div>
 			</div>
@@ -33,6 +32,7 @@
 import UserInterfaceButtons from './UserInterface/UserInterfaceButtons.vue';
 import UserInterfaceForms from './UserInterface/UserInterfaceForms.vue';
 import UserInterfaceCalendars from './UserInterface/UserInterfaceCalendars.vue';
+import UserInterfaceCharts from './UserInterface/UserInterfaceCharts.vue';
 
 export default {
 	name: 'tourism',
@@ -40,6 +40,7 @@ export default {
 		UserInterfaceButtons,
 		UserInterfaceForms,
 		UserInterfaceCalendars,
+		UserInterfaceCharts,
 	},
 };
 </script>
