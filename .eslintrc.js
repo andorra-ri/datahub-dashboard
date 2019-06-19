@@ -29,6 +29,7 @@ module.exports = {
 		}],
 		'no-shadow': ['error', { 'allow': ['response', 'data'] }],
 		'object-curly-newline': ['error', { 'multiline': true }],
+		'no-confusing-arrow': ['error', { 'allowParens': true }]
 	},
 	parserOptions: {
 		parser: 'babel-eslint',
