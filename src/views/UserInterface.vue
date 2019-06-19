@@ -23,6 +23,11 @@
 						<user-interface-charts />
 					</div>
 				</div>
+				<div class="row">
+					<div class="column col-3">
+						<user-interface-loading />
+					</div>
+				</div>
 			</div>
 		</main>
 	</div>
@@ -33,6 +38,7 @@ import UserInterfaceButtons from './UserInterface/UserInterfaceButtons.vue';
 import UserInterfaceForms from './UserInterface/UserInterfaceForms.vue';
 import UserInterfaceCalendars from './UserInterface/UserInterfaceCalendars.vue';
 import UserInterfaceCharts from './UserInterface/UserInterfaceCharts.vue';
+import UserInterfaceLoading from './UserInterface/UserInterfaceLoading.vue';
 
 export default {
 	name: 'tourism',
@@ -41,6 +47,7 @@ export default {
 		UserInterfaceForms,
 		UserInterfaceCalendars,
 		UserInterfaceCharts,
+		UserInterfaceLoading,
 	},
 };
 </script>
