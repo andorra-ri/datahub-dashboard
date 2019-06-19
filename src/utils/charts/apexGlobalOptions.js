@@ -15,12 +15,12 @@ export default {
 		toolbar: {
 			show: true,
 			tools: {
-				download: false,
-				zoom: false,
+				download: '<i class="icon mdi mdi-download"></i>',
+				zoom: '<i class="icon mdi mdi-select-drag"></i>',
 				zoomin: true,
 				zoomout: true,
-				pan: true,
-				reset: false,
+				pan: '<i class="icon mdi mdi-pan-horizontal"></i>',
+				reset: '<i class="icon mdi mdi-arrow-expand-all"></i>',
 			},
 		},
 	},
