@@ -5,7 +5,7 @@
 			<div class="row">
 
 				<!-- Lines -->
-				<div class="column col-6">
+				<div class="column col-4">
 					<h3>Line</h3>
 					<apex-chart
 						type="line"
@@ -15,11 +15,20 @@
 				</div>
 
 				<!-- Columns -->
-				<div class="column col-6">
+				<div class="column col-4">
 					<h3>Column</h3>
 					<apex-chart
 						type="bar"
 						:options="options.columnStack"
+						:series="dateSeries"
+						height="300" />
+				</div>
+
+				<div class="column col-4">
+					<h3>Area</h3>
+					<apex-chart
+						type="area"
+						:options="options.area"
 						:series="dateSeries"
 						height="300" />
 				</div>
@@ -87,6 +96,10 @@ export default {
 				}),
 				donut: mergeDeep(apexOptions.donut, { labels: series }),
 				heatmap: apexOptions.heatmap,
+				area: mergeDeep(apexOptions.area, {
+					chart: { stacked: true },
+					xaxis: { type: 'datetime' },
+				}),
 			},
 		};
 	},
