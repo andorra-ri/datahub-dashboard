@@ -20,7 +20,7 @@
 					<apex-chart
 						type="bar"
 						:options="options.columnStack"
-						:series="series"
+						:series="dateSeries"
 						height="300" />
 				</div>
 
@@ -55,10 +55,22 @@
 import ApexChart from 'vue-apexcharts';
 import { apexOptions, mergeDeep } from '@/utils/charts/apexOptions';
 
+const getDates = (start, end) => {
+	const dates = [];
+	const date = new Date(start);
+	const endDate = new Date(end);
+	while (date <= endDate) {
+		dates.push(new Date(date));
+		date.setDate(date.getDate() + 1);
+	}
+	return dates;
+};
+
 const NUM_SERIES = 3;
 const NUM_CATEGORIES = 10;
 const series = Array.from(Array(NUM_SERIES).keys()).map(key => `Serie ${key + 1}`);
 const categories = Array.from(Array(NUM_CATEGORIES).keys()).map(key => `Cat ${key + 1}`);
+const dates = getDates('2017-01-02', '2017-01-10');
 
 export default {
 	name: 'user-interface-charts',
@@ -71,6 +83,7 @@ export default {
 					chart: { stacked: true },
 					tooltip: { intersect: true, shared: false },
 					plotOptions: { bar: { columnWidth: '20%' } },
+					xaxis: { type: 'datetime' },
 				}),
 				donut: mergeDeep(apexOptions.donut, { labels: series }),
 				heatmap: apexOptions.heatmap,
@@ -82,6 +95,12 @@ export default {
 			return series.map(serie => ({
 				name: serie,
 				data: categories.map(x => ({ x, y: Math.random() * 100 })),
+			}));
+		},
+		dateSeries() {
+			return series.map(serie => ({
+				name: serie,
+				data: dates.map(date => ({ x: date.toISOString(), y: Math.random() * 100 })),
 			}));
 		},
 		serialSeries() {

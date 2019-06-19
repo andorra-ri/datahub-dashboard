@@ -15,12 +15,12 @@ export default {
 		toolbar: {
 			show: true,
 			tools: {
-				download: '<i class="icon mdi mdi-download"></i>',
-				zoom: '<i class="icon mdi mdi-select-drag"></i>',
-				zoomin: true,
-				zoomout: true,
-				pan: '<i class="icon mdi mdi-pan-horizontal"></i>',
-				reset: '<i class="icon mdi mdi-arrow-expand-all"></i>',
+				download: '<i class="mdi mdi-download"></i>',
+				zoom: '<i class="mdi mdi-select-drag"></i>',
+				zoomin: false, // '<i class="mdi mdi-magnify-plus"></i>',
+				zoomout: false, // '<i class="mdi mdi-magnify-minus"></i>',
+				pan: '<i class="mdi mdi-hand-right"></i>',
+				reset: '<i class="mdi mdi-arrow-expand-all"></i>',
 			},
 		},
 	},
@@ -37,7 +37,7 @@ export default {
 		onItemHover: { highlightDataSeries: true },
 	},
 	xaxis: {
-		type: 'categories',
+		type: 'category',
 		labels: {
 			show: true,
 			rotate: 0,
@@ -46,6 +46,7 @@ export default {
 		},
 		axisBorder: { show: false },
 		axisTicks: { show: false },
+		tooltip: { enabled: false },
 	},
 	yaxis: {
 		show: true,
