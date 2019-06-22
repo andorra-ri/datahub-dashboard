@@ -140,3 +140,26 @@ label {
 		}
 	}
 }
+
+.picker {
+	font-size: 0.9em;
+
+	label {
+		display: inline-block;
+		padding: 0 2px 0 5px;
+
+		& + label { border-left: 1px solid #a5acb6; }
+
+		span {
+			display: block;
+			color: #461ea3;
+			cursor: pointer;
+		}
+
+		input {
+			display: none;
+
+			&:checked + span { font-weight: bold; }
+		}
+	}
+}
