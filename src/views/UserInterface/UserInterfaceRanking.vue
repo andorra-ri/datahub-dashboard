@@ -1,7 +1,7 @@
 <template lang="html">
 	<section class="card card--round">
 		<h2>Ranking</h2>
-		<fieldset class="picker">
+		<fieldset class="picker content--right">
 			<label>
 				<input type="radio" v-model="ranker" value="population" />
 				<span>Population</span>
@@ -23,7 +23,8 @@
 			:pagination="6"
 			show-values>
 			<template v-slot="{ item }">
-				<i :class="`flag flag-${item.code}`" /> {{ item.name }}
+				<i :class="`flag flag-${item.code} margin-r-1`" />
+				{{ item.name }}
 			</template>
 		</ranking>
 	</section>
