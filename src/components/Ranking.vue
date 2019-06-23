@@ -100,6 +100,7 @@ export default {
 		width: 40% !important;
 		color: #461ea3;
 		font-size: 0.8em;
+		width: 1% !important;
 		white-space: nowrap;
 	}
 
