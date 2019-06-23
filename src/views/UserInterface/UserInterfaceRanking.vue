@@ -21,7 +21,11 @@
 			:unit-prefix="unit.pre"
 			:unit-suffix="unit.suf"
 			:pagination="6"
-			show-values />
+			show-values>
+			<template v-slot="{ item }">
+				<i :class="`flag flag-${item.code}`" /> {{ item.name }}
+			</template>
+		</ranking>
 	</section>
 </template>
 

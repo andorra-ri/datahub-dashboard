@@ -3,7 +3,9 @@
 		<table class="ranking__list">
 			<tr v-for="item in rankedList" :key="item._rank">
 				<td class="ranking__rank">{{ item._rank }}</td>
-				<td class="ranking__name">{{ item.name }}</td>
+				<td class="ranking__name">
+					<slot :item="item">{{ item.name }}</slot>
+				</td>
 				<td v-if="showValues" class="ranking__value">
 					{{ unitPrefix }}{{ rankAttribute(item) }}{{ unitSuffix }}
 				</td>
