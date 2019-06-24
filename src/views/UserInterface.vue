@@ -2,6 +2,13 @@
 	<div class="screen">
 		<main class="content">
 			<header class="header">
+				<div class="toolbox">
+					<button>
+						<i class="icon mdi mdi-download" />
+						<span>Download CSV</span>
+					</button>
+					<button><i class="icon mdi mdi-filter" /></button>
+				</div>
 				<h1><em>SETTINGS</em>USER INTERFACE</h1>
 			</header>
 			<div class="grid">

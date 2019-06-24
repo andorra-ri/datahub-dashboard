@@ -16,7 +16,11 @@
 		overflow: auto;
 		padding: 20px 30px;
 
-		.header { margin: 20px; }
+		.header {
+			margin: 20px;
+
+			.toolbox { float: right; }
+		}
 	}
 
 	.sidebar {
