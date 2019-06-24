@@ -3,7 +3,12 @@
 		<h2>Loading</h2>
 		<p>Spinner indicator for loading content</p>
 		<p><img src="https://picsum.photos/300/200?grayscale" :key="updateTime" /></p>
-		<p><button @click="load"><i class="icon mdi mdi-reload" />Load new image</button></p>
+		<p>
+			<button @click="load">
+				<i class="icon mdi mdi-reload" />
+				<span>Load new image</span>
+			</button>
+		</p>
 	</section>
 </template>
 

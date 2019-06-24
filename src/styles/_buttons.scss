@@ -40,11 +40,13 @@ button,
 
 	.icon {
 		font-size: 1.2em;
-		margin: 0 3px;
 		color: inherit;
+
+		&:not(:last-child) { margin-right: 7px; }
+		&:not(:first-child) { margin-left: 7px; } // stylelint-disable-line
 	}
 
-	&.outline {
+	&--outline {
 		background: transparent;
 		color: #461ea3;
 	}

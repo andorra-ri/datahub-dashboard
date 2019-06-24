@@ -114,7 +114,10 @@
 							placeholder="Country"
 							searchable
 							clearable />
-						<button><i class="icon mdi mdi-cloud-upload" />Upload</button>
+						<button>
+							<i class="icon mdi mdi-cloud-upload" />
+							<span>Upload</span>
+						</button>
 					</fieldset>
 				</div>
 			</div>
@@ -145,7 +148,7 @@
 					<input type="submit" value="Upload" class="btn" />
 					<button>
 						<i class="icon mdi mdi-cloud-upload" />
-						Upload
+						<span>Upload</span>
 					</button>
 					<input type="submit" value="Cancel" class="btn outline" />
 					<input type="submit" value="Delete" class="btn danger" />
