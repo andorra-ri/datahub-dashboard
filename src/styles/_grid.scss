@@ -1,0 +1,25 @@
+.grid {
+	display: flex;
+	flex-direction: column;
+
+	&--gapless .column { border-width: 0 !important; }
+	&--gap-2x .column { border-width: 2 * $grid__gap !important; }
+	&--gap-3x .column { border-width: 3 * $grid__gap !important; }
+
+	.row {
+		display: flex;
+		flex: auto;
+		flex-direction: row;
+
+		.column {
+			background-clip: padding-box;
+			border: $grid__gap solid transparent;
+			box-sizing: border-box;
+			flex: 1 1 auto;
+
+			@for $i from 1 through $grid__columns { // stylelint-disable-line
+				&.col-#{$i} { flex: 0 0 percentage(1 / $grid__columns * $i) !important; }
+			}
+		}
+	}
+}
