@@ -1,6 +1,6 @@
 <template lang="html">
 	<section class="card card--round">
-		<h2>Calendars</h2>
+		<h2>{{ $t('ui.calendar.title') }}</h2>
 		<calendar class="fluid" :not-after="new Date()" range />
 	</section>
 </template>

@@ -1,12 +1,12 @@
 <template lang="html">
 	<section class="card card--round">
-		<h2>Charts</h2>
+		<h2>{{ $t('ui.chart.title') }}</h2>
 		<div class="grid">
 			<div class="row">
 
 				<!-- Lines -->
 				<div class="column col-4">
-					<h3>Line</h3>
+					<h3>{{ $t('ui.chart.type.line') }}</h3>
 					<apex-chart
 						type="line"
 						:options="options.line"
@@ -16,7 +16,7 @@
 
 				<!-- Columns -->
 				<div class="column col-4">
-					<h3>Column</h3>
+					<h3>{{ $t('ui.chart.type.columns') }}</h3>
 					<apex-chart
 						type="bar"
 						:options="options.columnStack"
@@ -25,7 +25,7 @@
 				</div>
 
 				<div class="column col-4">
-					<h3>Area</h3>
+					<h3>{{ $t('ui.chart.type.area') }}</h3>
 					<apex-chart
 						type="area"
 						:options="options.area"
@@ -38,7 +38,7 @@
 
 				<!-- Donut -->
 				<div class="column col-4">
-					<h3>Donut</h3>
+					<h3>{{ $t('ui.chart.type.donut') }}</h3>
 					<apex-chart
 						type="donut"
 						:options="options.donut"
@@ -47,7 +47,7 @@
 
 				<!-- Heatmap -->
 				<div class="column col-8">
-					<h3>Heatmap</h3>
+					<h3>{{ $t('ui.chart.type.heatmap') }}</h3>
 					<apex-chart
 						type="heatmap"
 						:options="options.heatmap"

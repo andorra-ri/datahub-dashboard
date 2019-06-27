@@ -5,11 +5,11 @@
 				<div class="toolbox">
 					<button>
 						<i class="icon mdi mdi-download" />
-						<span>Download CSV</span>
+						<span>{{ $t('ui.button.label.download_csv') }}</span>
 					</button>
 					<button><i class="icon mdi mdi-filter" /></button>
 				</div>
-				<h1><em>SETTINGS</em>USER INTERFACE</h1>
+				<h1>{{ $t('ui.title') }}</h1>
 			</header>
 			<div class="grid">
 				<div class="row">
