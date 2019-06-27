@@ -1,5 +1,5 @@
 export default {
-	'**': 'Desconegut',
+	unknown: 'Desconegut',
 	ad: 'Andorra',
 	ae: 'Emirats Àrabs Units',
 	af: 'Afganistan',
