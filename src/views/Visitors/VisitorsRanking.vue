@@ -16,7 +16,7 @@
 			</label>
 		</fieldset>
 		<ranking
-			:list="countries"
+			:list="filteredCountries"
 			:ranker="ranker"
 			:pagination="10"
 			show-values>
@@ -32,11 +32,12 @@
 import datahub from '@/api/datahub';
 import Ranking from '@/components/Ranking.vue';
 
-const sumObjectParams = object => Object.values(object).reduce((sum, value) => sum + value, 0);
+const sumObject = object => Object.values(object).reduce((sum, value) => sum + value, 0);
 
 export default {
 	name: 'visitors-ranking',
 	components: { Ranking },
+	props: { filters: { type: Object, default: () => {} } },
 	data() {
 		return {
 			loading: false,
@@ -44,21 +45,24 @@ export default {
 			ranker: 'visitors.total',
 		};
 	},
-	methods: {
-		loadCountries() {
-			this.loading = true;
-			datahub.get('/visitors/countries').then(({ data: { countries } }) => {
-				this.countries = countries.map((country) => {
-					/* eslint-disable no-param-reassign */
-					country.visitors.total = sumObjectParams(country.visitors);
-					country.visits.total = sumObjectParams(country.visits);
-					/* eslint-enable no-param-reassign */
-					return country;
+	computed: {
+		filteredCountries() {
+			const { countries: allowCountries } = this.filters;
+			return this.countries
+				.filter(({ code }) => !allowCountries.length || allowCountries.includes(code))
+				.map((country) => {
+					const visitors = { ...country.visitors, total: sumObject(country.visitors) };
+					const visits = { ...country.visits, total: sumObject(country.visits) };
+					return { ...country, visitors, visits };
 				});
-				this.loading = false;
-			});
 		},
 	},
-	mounted() { this.loadCountries(); },
+	mounted() {
+		this.loading = true;
+		datahub.get('/visitors/countries').then(({ data: { countries } }) => {
+			this.countries = countries;
+			this.loading = false;
+		});
+	},
 };
 </script>
