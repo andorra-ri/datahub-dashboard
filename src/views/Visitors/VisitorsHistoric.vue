@@ -51,13 +51,16 @@ export default {
 		},
 	},
 	watch: {
-		dates({ since, until }) {
-			const endpoint = `/visitors/historic?since=${since}&until=${until}`;
-			this.loading = true;
-			datahub.get(endpoint).then(({ data: { dates } }) => {
-				this.historic = dates;
-				this.loading = false;
-			});
+		dates: {
+			immediate: true,
+			handler({ since, until }) {
+				const endpoint = `/visitors/historic?since=${since}&until=${until}`;
+				this.loading = true;
+				datahub.get(endpoint).then(({ data: { dates } }) => {
+					this.historic = dates;
+					this.loading = false;
+				});
+			},
 		},
 	},
 };
