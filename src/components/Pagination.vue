@@ -13,6 +13,11 @@ export default {
 		pages: { type: Number, required: true },
 		value: { type: Number, required: true },
 	},
+	watch: {
+		pages(pages) {
+			if (this.value > pages) this.$emit('input', pages - 1);
+		},
+	},
 	methods: {
 		selectPage(i) {
 			this.$emit('input', i - 1);
