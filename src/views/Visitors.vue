@@ -13,7 +13,7 @@
 				</div>
 				<div class="row">
 					<div class="column col-6">
-						<visitors-ranking :filters="filters" />
+						<visitors-ranking :dates="datesRange" :filters="filters" />
 					</div>
 					<div class="column col-6">
 					</div>

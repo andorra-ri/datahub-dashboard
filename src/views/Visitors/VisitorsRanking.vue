@@ -37,7 +37,10 @@ const sumObject = object => Object.values(object).reduce((sum, value) => sum + v
 export default {
 	name: 'visitors-ranking',
 	components: { Ranking },
-	props: { filters: { type: Object, default: () => {} } },
+	props: {
+		dates: { type: Object, required: true },
+		filters: { type: Object, default: () => {} },
+	},
 	data() {
 		return {
 			loading: false,
@@ -57,12 +60,18 @@ export default {
 				});
 		},
 	},
-	mounted() {
-		this.loading = true;
-		datahub.get('/visitors/countries').then(({ data: { countries } }) => {
-			this.countries = countries;
-			this.loading = false;
-		});
+	watch: {
+		dates: {
+			immediate: true,
+			handler({ since, until }) {
+				const endpoint = `/visitors/summary?since=${since}&until=${until}`;
+				this.loading = true;
+				datahub.get(endpoint).then(({ data: { countries } }) => {
+					this.countries = countries;
+					this.loading = false;
+				});
+			},
+		},
 	},
 };
 </script>
