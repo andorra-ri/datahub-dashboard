@@ -50,9 +50,9 @@ export default {
 	},
 	computed: {
 		filteredCountries() {
-			const { countries: allowCountries } = this.filters;
+			const { countries } = this.filters;
 			return this.countries
-				.filter(({ code }) => !allowCountries.length || allowCountries.includes(code))
+				.filter(({ code }) => !countries.length || countries.includes(code))
 				.map((country) => {
 					const visitors = { ...country.visitors, total: sumObject(country.visitors) };
 					const visits = { ...country.visits, total: sumObject(country.visits) };
