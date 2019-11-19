@@ -18,7 +18,7 @@
 		<ranking
 			:list="filteredCountries"
 			:ranker="ranker"
-			:pagination="10"
+			:pagination="20"
 			show-values>
 			<template v-slot="{ item }">
 				<i :class="`flag flag-${item.code} margin-r-1`" />
@@ -66,8 +66,8 @@ export default {
 			handler({ since, until }) {
 				const endpoint = `/visitors/summary?since=${since}&until=${until}`;
 				this.loading = true;
-				datahub.get(endpoint).then(({ data: { countries } }) => {
-					this.countries = countries;
+				datahub.get(endpoint).then(({ data }) => {
+					this.countries = data;
 					this.loading = false;
 				});
 			},

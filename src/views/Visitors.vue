@@ -16,6 +16,7 @@
 						<visitors-ranking :dates="datesRange" :filters="filters" />
 					</div>
 					<div class="column col-6">
+						<visitors-stats :dates="datesRange" />
 					</div>
 				</div>
 			</div>
@@ -27,6 +28,7 @@
 <script>
 import VisitorsRanking from '@/views/Visitors/VisitorsRanking.vue';
 import VisitorsHistoric from '@/views/Visitors/VisitorsHistoric.vue';
+import VisitorsStats from '@/views/Visitors/VisitorsStats.vue';
 import VisitorsFilters from '@/views/Visitors/VisitorsFilters.vue';
 
 const sameDates = (date, otherDate) => {
@@ -39,6 +41,7 @@ export default {
 	components: {
 		VisitorsHistoric,
 		VisitorsRanking,
+		VisitorsStats,
 		VisitorsFilters,
 	},
 	data() {

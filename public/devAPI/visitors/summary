@@ -1,1 +1,543 @@
-{"countries":[{"code":"unknown","visitors":{"trippers":17,"tourists":21},"visits":{"trippers":24,"tourists":28},"overnights":{"total":129,"mean":4.607142857142857}},{"code":"ae","visitors":{"trippers":37,"tourists":33},"visits":{"trippers":37,"tourists":35},"overnights":{"total":88,"mean":2.5142857142857142}},{"code":"al","visitors":{"trippers":8,"tourists":2},"visits":{"trippers":12,"tourists":2},"overnights":{"total":15,"mean":7.5}},{"code":"am","visitors":{"trippers":3,"tourists":1},"visits":{"trippers":3,"tourists":1},"overnights":{"total":1,"mean":1}},{"code":"ao","visitors":{"trippers":10,"tourists":2},"visits":{"trippers":11,"tourists":2},"overnights":{"total":4,"mean":2}},{"code":"ar","visitors":{"trippers":242,"tourists":342},"visits":{"trippers":296,"tourists":363},"overnights":{"total":1503,"mean":4.140495867768595}},{"code":"at","visitors":{"trippers":1018,"tourists":917},"visits":{"trippers":1513,"tourists":1067},"overnights":{"total":2929,"mean":2.745079662605436}},{"code":"au","visitors":{"trippers":35,"tourists":18},"visits":{"trippers":40,"tourists":19},"overnights":{"total":53,"mean":2.789473684210526}},{"code":"az","visitors":{"trippers":0,"tourists":3},"visits":{"trippers":0,"tourists":3},"overnights":{"total":3,"mean":1}},{"code":"be","visitors":{"trippers":1352,"tourists":1622},"visits":{"trippers":1463,"tourists":1671},"overnights":{"total":6921,"mean":4.141831238779174}},{"code":"bg","visitors":{"trippers":46,"tourists":54},"visits":{"trippers":48,"tourists":54},"overnights":{"total":178,"mean":3.2962962962962963}},{"code":"bi","visitors":{"trippers":0,"tourists":1},"visits":{"trippers":0,"tourists":1},"overnights":{"total":10,"mean":10}},{"code":"bn","visitors":{"trippers":0,"tourists":1},"visits":{"trippers":0,"tourists":1},"overnights":{"total":1,"mean":1}},{"code":"br","visitors":{"trippers":323,"tourists":134},"visits":{"trippers":371,"tourists":146},"overnights":{"total":343,"mean":2.3493150684931505}},{"code":"by","visitors":{"trippers":22,"tourists":102},"visits":{"trippers":24,"tourists":102},"overnights":{"total":469,"mean":4.598039215686274}},{"code":"ca","visitors":{"trippers":137,"tourists":41},"visits":{"trippers":141,"tourists":42},"overnights":{"total":141,"mean":3.357142857142857}},{"code":"ch","visitors":{"trippers":122,"tourists":375},"visits":{"trippers":138,"tourists":394},"overnights":{"total":1548,"mean":3.9289340101522843}},{"code":"cl","visitors":{"trippers":39,"tourists":42},"visits":{"trippers":53,"tourists":43},"overnights":{"total":184,"mean":4.27906976744186}},{"code":"cm","visitors":{"trippers":1,"tourists":1},"visits":{"trippers":3,"tourists":1},"overnights":{"total":1,"mean":1}},{"code":"cn","visitors":{"trippers":383,"tourists":191},"visits":{"trippers":396,"tourists":196},"overnights":{"total":373,"mean":1.903061224489796}},{"code":"co","visitors":{"trippers":37,"tourists":16},"visits":{"trippers":44,"tourists":16},"overnights":{"total":43,"mean":2.6875}},{"code":"cr","visitors":{"trippers":6,"tourists":1},"visits":{"trippers":6,"tourists":1},"overnights":{"total":1,"mean":1}},{"code":"cu","visitors":{"trippers":3,"tourists":2},"visits":{"trippers":7,"tourists":2},"overnights":{"total":3,"mean":1.5}},{"code":"cy","visitors":{"trippers":3,"tourists":9},"visits":{"trippers":4,"tourists":9},"overnights":{"total":29,"mean":3.2222222222222223}},{"code":"cz","visitors":{"trippers":65,"tourists":162},"visits":{"trippers":70,"tourists":168},"overnights":{"total":688,"mean":4.095238095238095}},{"code":"de","visitors":{"trippers":629,"tourists":598},"visits":{"trippers":677,"tourists":634},"overnights":{"total":2045,"mean":3.225552050473186}},{"code":"dk","visitors":{"trippers":245,"tourists":749},"visits":{"trippers":300,"tourists":797},"overnights":{"total":3454,"mean":4.33375156838143}},{"code":"dz","visitors":{"trippers":187,"tourists":15},"visits":{"trippers":188,"tourists":16},"overnights":{"total":59,"mean":3.6875}},{"code":"ec","visitors":{"trippers":15,"tourists":2},"visits":{"trippers":16,"tourists":2},"overnights":{"total":3,"mean":1.5}},{"code":"ee","visitors":{"trippers":49,"tourists":308},"visits":{"trippers":53,"tourists":310},"overnights":{"total":1172,"mean":3.7806451612903227}},{"code":"eg","visitors":{"trippers":6,"tourists":6},"visits":{"trippers":7,"tourists":6},"overnights":{"total":19,"mean":3.1666666666666665}},{"code":"es","visitors":{"trippers":61320,"tourists":69677},"visits":{"trippers":71437,"tourists":76114},"overnights":{"total":173751,"mean":2.2827732086081403}},{"code":"fg","visitors":{"trippers":54,"tourists":14},"visits":{"trippers":56,"tourists":14},"overnights":{"total":17,"mean":1.2142857142857142}},{"code":"fi","visitors":{"trippers":41,"tourists":200},"visits":{"trippers":43,"tourists":201},"overnights":{"total":716,"mean":3.5621890547263684}},{"code":"fr","visitors":{"trippers":87513,"tourists":30889},"visits":{"trippers":95278,"tourists":32682},"overnights":{"total":86616,"mean":2.6502662015788507}},{"code":"ga","visitors":{"trippers":3,"tourists":1},"visits":{"trippers":3,"tourists":1},"overnights":{"total":1,"mean":1}},{"code":"gb","visitors":{"trippers":2386,"tourists":8893},"visits":{"trippers":2645,"tourists":9060},"overnights":{"total":35626,"mean":3.9322295805739516}},{"code":"ge","visitors":{"trippers":8,"tourists":8},"visits":{"trippers":8,"tourists":8},"overnights":{"total":29,"mean":3.625}},{"code":"gh","visitors":{"trippers":18,"tourists":2},"visits":{"trippers":19,"tourists":2},"overnights":{"total":2,"mean":1}},{"code":"gi","visitors":{"trippers":4,"tourists":19},"visits":{"trippers":5,"tourists":19},"overnights":{"total":96,"mean":5.052631578947368}},{"code":"gl","visitors":{"trippers":0,"tourists":1},"visits":{"trippers":0,"tourists":1},"overnights":{"total":1,"mean":1}},{"code":"gr","visitors":{"trippers":34,"tourists":34},"visits":{"trippers":36,"tourists":37},"overnights":{"total":152,"mean":4.108108108108108}},{"code":"gt","visitors":{"trippers":4,"tourists":3},"visits":{"trippers":4,"tourists":3},"overnights":{"total":5,"mean":1.6666666666666667}},{"code":"hk","visitors":{"trippers":58,"tourists":26},"visits":{"trippers":60,"tourists":27},"overnights":{"total":73,"mean":2.7037037037037037}},{"code":"hn","visitors":{"trippers":6,"tourists":1},"visits":{"trippers":7,"tourists":1},"overnights":{"total":1,"mean":1}},{"code":"hr","visitors":{"trippers":14,"tourists":24},"visits":{"trippers":14,"tourists":24},"overnights":{"total":95,"mean":3.9583333333333335}},{"code":"hu","visitors":{"trippers":28,"tourists":41},"visits":{"trippers":30,"tourists":42},"overnights":{"total":134,"mean":3.1904761904761907}},{"code":"id","visitors":{"trippers":29,"tourists":3},"visits":{"trippers":32,"tourists":3},"overnights":{"total":8,"mean":2.6666666666666665}},{"code":"ie","visitors":{"trippers":179,"tourists":838},"visits":{"trippers":203,"tourists":852},"overnights":{"total":3357,"mean":3.9401408450704225}},{"code":"il","visitors":{"trippers":354,"tourists":476},"visits":{"trippers":390,"tourists":483},"overnights":{"total":1834,"mean":3.7971014492753623}},{"code":"in","visitors":{"trippers":22,"tourists":5},"visits":{"trippers":22,"tourists":5},"overnights":{"total":11,"mean":2.2}},{"code":"iq","visitors":{"trippers":4,"tourists":3},"visits":{"trippers":4,"tourists":3},"overnights":{"total":6,"mean":2}},{"code":"is","visitors":{"trippers":4,"tourists":7},"visits":{"trippers":4,"tourists":7},"overnights":{"total":42,"mean":6}},{"code":"it","visitors":{"trippers":298,"tourists":532},"visits":{"trippers":329,"tourists":556},"overnights":{"total":2110,"mean":3.7949640287769784}},{"code":"jp","visitors":{"trippers":67,"tourists":24},"visits":{"trippers":67,"tourists":24},"overnights":{"total":49,"mean":2.0416666666666665}},{"code":"kr","visitors":{"trippers":26,"tourists":67},"visits":{"trippers":27,"tourists":68},"overnights":{"total":264,"mean":3.8823529411764706}},{"code":"kz","visitors":{"trippers":12,"tourists":8},"visits":{"trippers":15,"tourists":8},"overnights":{"total":21,"mean":2.625}},{"code":"lb","visitors":{"trippers":4,"tourists":4},"visits":{"trippers":6,"tourists":5},"overnights":{"total":7,"mean":1.4}},{"code":"li","visitors":{"trippers":353,"tourists":18},"visits":{"trippers":417,"tourists":20},"overnights":{"total":23,"mean":1.15}},{"code":"lt","visitors":{"trippers":17,"tourists":239},"visits":{"trippers":18,"tourists":242},"overnights":{"total":763,"mean":3.152892561983471}},{"code":"lu","visitors":{"trippers":32,"tourists":63},"visits":{"trippers":34,"tourists":67},"overnights":{"total":235,"mean":3.5074626865671643}},{"code":"lv","visitors":{"trippers":49,"tourists":288},"visits":{"trippers":54,"tourists":288},"overnights":{"total":1272,"mean":4.416666666666667}},{"code":"ly","visitors":{"trippers":1,"tourists":1},"visits":{"trippers":1,"tourists":1},"overnights":{"total":1,"mean":1}},{"code":"ma","visitors":{"trippers":121,"tourists":58},"visits":{"trippers":134,"tourists":62},"overnights":{"total":163,"mean":2.629032258064516}},{"code":"md","visitors":{"trippers":10,"tourists":8},"visits":{"trippers":12,"tourists":8},"overnights":{"total":23,"mean":2.875}},{"code":"mk","visitors":{"trippers":1,"tourists":2},"visits":{"trippers":1,"tourists":2},"overnights":{"total":6,"mean":3}},{"code":"ml","visitors":{"trippers":7,"tourists":1},"visits":{"trippers":8,"tourists":1},"overnights":{"total":1,"mean":1}},{"code":"mo","visitors":{"trippers":2,"tourists":2},"visits":{"trippers":2,"tourists":2},"overnights":{"total":3,"mean":1.5}},{"code":"mt","visitors":{"trippers":24,"tourists":31},"visits":{"trippers":24,"tourists":34},"overnights":{"total":115,"mean":3.3823529411764706}},{"code":"mu","visitors":{"trippers":4,"tourists":2},"visits":{"trippers":4,"tourists":4},"overnights":{"total":12,"mean":3}},{"code":"mx","visitors":{"trippers":60,"tourists":39},"visits":{"trippers":90,"tourists":43},"overnights":{"total":109,"mean":2.5348837209302326}},{"code":"mz","visitors":{"trippers":1,"tourists":3},"visits":{"trippers":2,"tourists":3},"overnights":{"total":15,"mean":5}},{"code":"ne","visitors":{"trippers":3,"tourists":1},"visits":{"trippers":3,"tourists":2},"overnights":{"total":3,"mean":1.5}},{"code":"nl","visitors":{"trippers":4820,"tourists":5314},"visits":{"trippers":5700,"tourists":6077},"overnights":{"total":19478,"mean":3.205199934178048}},{"code":"no","visitors":{"trippers":174,"tourists":176},"visits":{"trippers":178,"tourists":181},"overnights":{"total":604,"mean":3.3370165745856353}},{"code":"nz","visitors":{"trippers":11,"tourists":2},"visits":{"trippers":14,"tourists":2},"overnights":{"total":3,"mean":1.5}},{"code":"pa","visitors":{"trippers":13,"tourists":1},"visits":{"trippers":15,"tourists":1},"overnights":{"total":2,"mean":2}},{"code":"pe","visitors":{"trippers":27,"tourists":13},"visits":{"trippers":30,"tourists":16},"overnights":{"total":82,"mean":5.125}},{"code":"ph","visitors":{"trippers":19,"tourists":4},"visits":{"trippers":19,"tourists":4},"overnights":{"total":25,"mean":6.25}},{"code":"pl","visitors":{"trippers":393,"tourists":899},"visits":{"trippers":442,"tourists":917},"overnights":{"total":4173,"mean":4.550708833151581}},{"code":"ps","visitors":{"trippers":0,"tourists":1},"visits":{"trippers":0,"tourists":1},"overnights":{"total":3,"mean":3}},{"code":"pt","visitors":{"trippers":1545,"tourists":7582},"visits":{"trippers":1846,"tourists":7835},"overnights":{"total":35184,"mean":4.490619017230377}},{"code":"py","visitors":{"trippers":4,"tourists":4},"visits":{"trippers":7,"tourists":4},"overnights":{"total":4,"mean":1}},{"code":"qa","visitors":{"trippers":8,"tourists":9},"visits":{"trippers":8,"tourists":9},"overnights":{"total":16,"mean":1.7777777777777777}},{"code":"re","visitors":{"trippers":83,"tourists":18},"visits":{"trippers":89,"tourists":18},"overnights":{"total":28,"mean":1.5555555555555556}},{"code":"ro","visitors":{"trippers":248,"tourists":101},"visits":{"trippers":274,"tourists":104},"overnights":{"total":291,"mean":2.798076923076923}},{"code":"rs","visitors":{"trippers":10,"tourists":14},"visits":{"trippers":10,"tourists":14},"overnights":{"total":46,"mean":3.2857142857142856}},{"code":"ru","visitors":{"trippers":928,"tourists":3268},"visits":{"trippers":1028,"tourists":3337},"overnights":{"total":14929,"mean":4.473778843272401}},{"code":"sa","visitors":{"trippers":18,"tourists":12},"visits":{"trippers":18,"tourists":12},"overnights":{"total":24,"mean":2}},{"code":"se","visitors":{"trippers":1011,"tourists":2108},"visits":{"trippers":1224,"tourists":2163},"overnights":{"total":8441,"mean":3.902450300508553}},{"code":"sg","visitors":{"trippers":17,"tourists":22},"visits":{"trippers":18,"tourists":23},"overnights":{"total":49,"mean":2.130434782608696}},{"code":"si","visitors":{"trippers":7,"tourists":61},"visits":{"trippers":7,"tourists":62},"overnights":{"total":244,"mean":3.935483870967742}},{"code":"sk","visitors":{"trippers":43,"tourists":78},"visits":{"trippers":48,"tourists":79},"overnights":{"total":223,"mean":2.8227848101265822}},{"code":"tg","visitors":{"trippers":3,"tourists":2},"visits":{"trippers":4,"tourists":3},"overnights":{"total":5,"mean":1.6666666666666667}},{"code":"th","visitors":{"trippers":41,"tourists":5},"visits":{"trippers":45,"tourists":6},"overnights":{"total":18,"mean":3}},{"code":"tn","visitors":{"trippers":30,"tourists":14},"visits":{"trippers":33,"tourists":14},"overnights":{"total":50,"mean":3.5714285714285716}},{"code":"tr","visitors":{"trippers":31,"tourists":51},"visits":{"trippers":33,"tourists":57},"overnights":{"total":109,"mean":1.912280701754386}},{"code":"tw","visitors":{"trippers":7,"tourists":1},"visits":{"trippers":7,"tourists":1},"overnights":{"total":1,"mean":1}},{"code":"tz","visitors":{"trippers":3,"tourists":1},"visits":{"trippers":3,"tourists":2},"overnights":{"total":3,"mean":1.5}},{"code":"ua","visitors":{"trippers":151,"tourists":771},"visits":{"trippers":160,"tourists":780},"overnights":{"total":3292,"mean":4.220512820512821}},{"code":"ug","visitors":{"trippers":0,"tourists":1},"visits":{"trippers":0,"tourists":1},"overnights":{"total":1,"mean":1}},{"code":"us","visitors":{"trippers":895,"tourists":468},"visits":{"trippers":1025,"tourists":541},"overnights":{"total":1519,"mean":2.807763401109057}},{"code":"uy","visitors":{"trippers":36,"tourists":6},"visits":{"trippers":40,"tourists":8},"overnights":{"total":14,"mean":1.75}},{"code":"ve","visitors":{"trippers":8,"tourists":4},"visits":{"trippers":10,"tourists":6},"overnights":{"total":10,"mean":1.6666666666666667}},{"code":"vn","visitors":{"trippers":8,"tourists":2},"visits":{"trippers":9,"tourists":2},"overnights":{"total":24,"mean":12}},{"code":"za","visitors":{"trippers":24,"tourists":13},"visits":{"trippers":26,"tourists":13},"overnights":{"total":33,"mean":2.5384615384615383}}]}
+[
+    {
+        "code": "ae",
+        "visitors": {
+            "trippers": 46,
+            "tourists": 43,
+            "uniques": 87
+        },
+        "visits": {
+            "trippers": 46,
+            "tourists": 50
+        },
+        "overnights": 171,
+        "spending": {
+            "mean": 503.4984066611842,
+            "merchant": {
+                "MDP": 1.36,
+                "MFU": 1.5,
+                "MLO": 23.54,
+                "MRE": 7.46,
+                "MFG": 1.73,
+                "MEN": 5.78,
+                "MAA": 12.03,
+                "MDS": 8.04,
+                "MRG": 33.26,
+                "MOT": 5.24
+            }
+        }
+    },
+    {
+        "code": "ar",
+        "visitors": {
+            "trippers": 283,
+            "tourists": 401,
+            "uniques": 630
+        },
+        "visits": {
+            "trippers": 366,
+            "tourists": 445
+        },
+        "overnights": 2620,
+        "spending": {
+            "mean": 235.412968061674,
+            "merchant": {
+                "MTR": 1.9,
+                "MDP": 1.2,
+                "MFU": 2.62,
+                "MLO": 9.7,
+                "MRE": 8,
+                "MFG": 6.26,
+                "MEN": 4.43,
+                "MAA": 10.23,
+                "MDS": 14.73,
+                "MRG": 26.73,
+                "MOT": 14.1
+            }
+        }
+    },
+    {
+        "code": "be",
+        "visitors": {
+            "trippers": 1443,
+            "tourists": 1761,
+            "uniques": 3125
+        },
+        "visits": {
+            "trippers": 1584,
+            "tourists": 1823
+        },
+        "overnights": 8303,
+        "spending": {
+            "mean": 458.0326220878136,
+            "merchant": {
+                "MTR": 1.84,
+                "MDP": 0.62,
+                "MFU": 6.1,
+                "MLO": 20.6,
+                "MRE": 11.2,
+                "MFG": 6.8,
+                "MEN": 2.4,
+                "MAA": 6.9,
+                "MDS": 13.62,
+                "MRG": 21.73,
+                "MOT": 8.3
+            }
+        }
+    },
+    {
+        "code": "ch",
+        "visitors": {
+            "trippers": 140,
+            "tourists": 438,
+            "uniques": 558
+        },
+        "visits": {
+            "trippers": 160,
+            "tourists": 470
+        },
+        "overnights": 1879,
+        "spending": {
+            "mean": 544.774403561828,
+            "merchant": {
+                "MDP": 1.52,
+                "MFU": 4.48,
+                "MLO": 20.61,
+                "MRE": 8.91,
+                "MFG": 1.99,
+                "MEN": 3.08,
+                "MAA": 6.97,
+                "MDS": 8.98,
+                "MRG": 31.87,
+                "MOT": 11.54
+            }
+        }
+    },
+    {
+        "code": "cn",
+        "visitors": {
+            "trippers": 463,
+            "tourists": 328,
+            "uniques": 785
+        },
+        "visits": {
+            "trippers": 480,
+            "tourists": 336
+        },
+        "overnights": 648,
+        "spending": {
+            "mean": 780.2390330188679,
+            "merchant": {
+                "MDP": 2.16,
+                "MFU": 0.7,
+                "MLO": 3.48,
+                "MRE": 2.02,
+                "MFG": 1.19,
+                "MEN": 0.54,
+                "MAA": 5.26,
+                "MDS": 7.62,
+                "MRG": 74.37,
+                "MOT": 2.64
+            }
+        }
+    },
+    {
+        "code": "de",
+        "visitors": {
+            "trippers": 784,
+            "tourists": 748,
+            "uniques": 1483
+        },
+        "visits": {
+            "trippers": 843,
+            "tourists": 816
+        },
+        "overnights": 2683,
+        "spending": {
+            "mean": 192.07092927631578,
+            "merchant": {
+                "MTR": 1.36,
+                "MDP": 0.85,
+                "MFU": 12.57,
+                "MLO": 18.16,
+                "MRE": 8.2,
+                "MFG": 6.31,
+                "MEN": 3.02,
+                "MAA": 6.3,
+                "MDS": 14.42,
+                "MRG": 19.09,
+                "MOT": 9.68
+            }
+        }
+    },
+    {
+        "code": "dk",
+        "visitors": {
+            "trippers": 272,
+            "tourists": 777,
+            "uniques": 1013
+        },
+        "visits": {
+            "trippers": 352,
+            "tourists": 841
+        },
+        "overnights": 4222,
+        "spending": {
+            "mean": 237.3334433685446,
+            "merchant": {
+                "MDP": 1.38,
+                "MFU": 3.28,
+                "MLO": 15.5,
+                "MRE": 19.41,
+                "MFG": 7.3,
+                "MEN": 5.4,
+                "MAA": 7.2,
+                "MDS": 9.5,
+                "MRG": 19.8,
+                "MOT": 11.24
+            }
+        }
+    },
+    {
+        "code": "es",
+        "visitors": {
+            "trippers": 62737,
+            "tourists": 75880,
+            "uniques": 132305
+        },
+        "visits": {
+            "trippers": 76174,
+            "tourists": 85549
+        },
+        "overnights": 223772,
+        "spending": {
+            "mean": 198.8109241516759,
+            "merchant": {
+                "MTR": 0.4,
+                "MDP": 2.75,
+                "MFU": 6.36,
+                "MLO": 12.9,
+                "MRE": 9.58,
+                "MFG": 2.44,
+                "MEN": 3.03,
+                "MAA": 9.05,
+                "MDS": 23.27,
+                "MRG": 20.56,
+                "MOT": 9.62
+            }
+        }
+    },
+    {
+        "code": "fr",
+        "visitors": {
+            "trippers": 83980,
+            "tourists": 31143,
+            "uniques": 112724
+        },
+        "visits": {
+            "trippers": 93683,
+            "tourists": 33776
+        },
+        "overnights": 102832,
+        "spending": {
+            "mean": 202.15618812408184,
+            "merchant": {
+                "MTR": 0.36,
+                "MDP": 0.31,
+                "MFU": 7.4,
+                "MLO": 5.57,
+                "MRE": 5.7,
+                "MFG": 38.2,
+                "MEN": 1.11,
+                "MAA": 6.83,
+                "MDS": 9.6,
+                "MRG": 18,
+                "MOT": 6.87
+            }
+        }
+    },
+    {
+        "code": "gb",
+        "visitors": {
+            "trippers": 2472,
+            "tourists": 9097,
+            "uniques": 11236
+        },
+        "visits": {
+            "trippers": 2776,
+            "tourists": 9380
+        },
+        "overnights": 45212,
+        "spending": {
+            "mean": 235.66629482071713,
+            "merchant": {
+                "MDP": 0.54,
+                "MFU": 2.58,
+                "MLO": 25.88,
+                "MRE": 17.64,
+                "MFG": 7.95,
+                "MEN": 9.04,
+                "MAA": 3.22,
+                "MDS": 5.24,
+                "MRG": 15.47,
+                "MOT": 12.41
+            }
+        }
+    },
+    {
+        "code": "ie",
+        "visitors": {
+            "trippers": 168,
+            "tourists": 902,
+            "uniques": 1036
+        },
+        "visits": {
+            "trippers": 204,
+            "tourists": 922
+        },
+        "overnights": 4571,
+        "spending": {
+            "mean": 277.91425184404636,
+            "merchant": {
+                "MTR": 1,
+                "MDP": 0.78,
+                "MFU": 1.33,
+                "MLO": 22.09,
+                "MRE": 21.69,
+                "MFG": 7.12,
+                "MEN": 6.1,
+                "MAA": 3.42,
+                "MDS": 5.27,
+                "MRG": 17.9,
+                "MOT": 13.27
+            }
+        }
+    },
+    {
+        "code": "il",
+        "visitors": {
+            "trippers": 384,
+            "tourists": 665,
+            "uniques": 1013
+        },
+        "visits": {
+            "trippers": 421,
+            "tourists": 675
+        },
+        "overnights": 2972,
+        "spending": {
+            "mean": 366.0289283608491,
+            "merchant": {
+                "MDP": 0.56,
+                "MFU": 1.1,
+                "MLO": 19.1,
+                "MRE": 7.16,
+                "MFG": 3.86,
+                "MEN": 5.35,
+                "MAA": 12.95,
+                "MDS": 9.15,
+                "MRG": 27.6,
+                "MOT": 13.16
+            }
+        }
+    },
+    {
+        "code": "no",
+        "visitors": {
+            "trippers": 192,
+            "tourists": 210,
+            "uniques": 395
+        },
+        "visits": {
+            "trippers": 198,
+            "tourists": 216
+        },
+        "overnights": 763,
+        "spending": {
+            "mean": 291.3094371448864,
+            "merchant": {
+                "MTR": 0.47,
+                "MDP": 1.23,
+                "MFU": 3.12,
+                "MLO": 21.28,
+                "MRE": 14.61,
+                "MFG": 4.57,
+                "MEN": 3.31,
+                "MAA": 11.8,
+                "MDS": 10.44,
+                "MRG": 21.07,
+                "MOT": 8.07
+            }
+        }
+    },
+    {
+        "code": "pl",
+        "visitors": {
+            "trippers": 417,
+            "tourists": 1151,
+            "uniques": 1535
+        },
+        "visits": {
+            "trippers": 479,
+            "tourists": 1172
+        },
+        "overnights": 5873,
+        "spending": {
+            "mean": 247.74691545307442,
+            "merchant": {
+                "MTR": 1.81,
+                "MDP": 0.61,
+                "MFU": 3.1,
+                "MLO": 19,
+                "MRE": 9.91,
+                "MFG": 9.11,
+                "MEN": 6.54,
+                "MAA": 6.26,
+                "MDS": 9.87,
+                "MRG": 29.03,
+                "MOT": 4.7
+            }
+        }
+    },
+    {
+        "code": "pt",
+        "visitors": {
+            "trippers": 1235,
+            "tourists": 7870,
+            "uniques": 8800
+        },
+        "visits": {
+            "trippers": 1485,
+            "tourists": 8200
+        },
+        "overnights": 39310,
+        "spending": {
+            "mean": 392.64237980322997,
+            "merchant": {
+                "MTR": 1.61,
+                "MDP": 1.52,
+                "MFU": 3.05,
+                "MLO": 19.18,
+                "MRE": 9.3,
+                "MFG": 4.88,
+                "MEN": 5.97,
+                "MAA": 7.37,
+                "MDS": 9.82,
+                "MRG": 26.13,
+                "MOT": 11.12
+            }
+        }
+    },
+    {
+        "code": "ru",
+        "visitors": {
+            "trippers": 939,
+            "tourists": 3208,
+            "uniques": 4039
+        },
+        "visits": {
+            "trippers": 1063,
+            "tourists": 3318
+        },
+        "overnights": 18534,
+        "spending": {
+            "mean": 507.89653558052436,
+            "merchant": {
+                "MDP": 2.16,
+                "MFU": 1.3,
+                "MLO": 18.1,
+                "MRE": 10.68,
+                "MFG": 4.04,
+                "MEN": 8.11,
+                "MAA": 18.31,
+                "MRG": 28.43,
+                "MOT": 8.84
+            }
+        }
+    },
+    {
+        "code": "se",
+        "visitors": {
+            "trippers": 933,
+            "tourists": 2029,
+            "uniques": 2876
+        },
+        "visits": {
+            "trippers": 1180,
+            "tourists": 2124
+        },
+        "overnights": 10282,
+        "spending": {
+            "mean": 253.87580818965517,
+            "merchant": {
+                "MTR": 0.93,
+                "MDP": 0.61,
+                "MFU": 2.48,
+                "MLO": 21.65,
+                "MRE": 22.7,
+                "MFG": 5.78,
+                "MEN": 6.9,
+                "MAA": 4.75,
+                "MDS": 6.29,
+                "MRG": 17.6,
+                "MOT": 10.28
+            }
+        }
+    },
+    {
+        "code": "ua",
+        "visitors": {
+            "trippers": 172,
+            "tourists": 609,
+            "uniques": 761
+        },
+        "visits": {
+            "trippers": 183,
+            "tourists": 624
+        },
+        "overnights": 3513,
+        "spending": {
+            "mean": 328.5932418699187,
+            "merchant": {
+                "MDP": 2.07,
+                "MFU": 1.01,
+                "MLO": 14.63,
+                "MRE": 9.68,
+                "MFG": 4.01,
+                "MEN": 7.85,
+                "MAA": 21.98,
+                "MRG": 32.84,
+                "MOT": 5.9
+            }
+        }
+    },
+    {
+        "code": "us",
+        "visitors": {
+            "trippers": 1096,
+            "tourists": 605,
+            "uniques": 1641
+        },
+        "visits": {
+            "trippers": 1281,
+            "tourists": 723
+        },
+        "overnights": 2254,
+        "spending": {
+            "mean": 244.77838656387667,
+            "merchant": {
+                "MTR": 1.29,
+                "MDP": 1.24,
+                "MFU": 2.85,
+                "MLO": 19.69,
+                "MRE": 15.52,
+                "MFG": 3.76,
+                "MEN": 5.49,
+                "MAA": 7.9,
+                "MDS": 8.6,
+                "MRG": 21.4,
+                "MOT": 12.21
+            }
+        }
+    }
+]

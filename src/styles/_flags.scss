@@ -10,6 +10,11 @@ $flags: ad, ae, af, ag, ai, al, am, an, ao, ar, as, at, au, aw, ax, az, ba, bb, 
 	vertical-align: middle;
 	width: 18px;
 
+	&--big {
+		height: 40px;
+		width: 40px;
+	}
+
 	@each $flag in $flags { // stylelint-disable-line
 		&-#{$flag} { background-image: url('./assets/img/icons/flags/#{$flag}.svg'); }
 	}
