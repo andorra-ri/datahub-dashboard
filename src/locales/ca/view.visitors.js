@@ -4,6 +4,8 @@ export default {
 	visits: 'Visites',
 	visitors: 'Visitants',
 	group: {
+		visitors: 'Visitants',
+		visits: 'Visites',
 		trippers: 'Excursionistes',
 		tourists: 'Turistes',
 		spending: 'Despesa',

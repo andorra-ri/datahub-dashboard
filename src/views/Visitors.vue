@@ -8,6 +8,11 @@
 			<div class="grid">
 				<div class="row">
 					<div class="column">
+						<visitors-summary :dates="datesRange" :filters="filters" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="column">
 						<visitors-historic :dates="datesRange" :filters="filters" />
 					</div>
 				</div>
@@ -26,6 +31,7 @@
 </template>
 
 <script>
+import VisitorsSummary from '@/views/Visitors/VisitorsSummary.vue';
 import VisitorsRanking from '@/views/Visitors/VisitorsRanking.vue';
 import VisitorsHistoric from '@/views/Visitors/VisitorsHistoric.vue';
 import VisitorsStats from '@/views/Visitors/VisitorsStats.vue';
@@ -39,6 +45,7 @@ const sameDates = (date, otherDate) => {
 export default {
 	name: 'visitors',
 	components: {
+		VisitorsSummary,
 		VisitorsHistoric,
 		VisitorsRanking,
 		VisitorsStats,
