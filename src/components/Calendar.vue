@@ -66,7 +66,7 @@ export default {
 		monthLabel() { return defaultLocale.months.long[this.cursor.getMonth()]; },
 		dayLabels() { return defaultLocale.weekdays.short; },
 		monthDays() {
-			const begin = new Date(this.cursor.getFullYear(), this.cursor.getMonth(), 1);
+			const begin = new Date(this.cursor.getFullYear(), this.cursor.getMonth(), 0);
 			const end = new Date(this.cursor.getFullYear(), this.cursor.getMonth() + 1, 0);
 			const firstMonday = new Date(begin);
 			firstMonday.setDate(begin.getDate() - begin.getDay() + 1);
