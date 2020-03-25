@@ -107,6 +107,9 @@ export default {
 					label: this.$t(`countries.${country.code}`),
 					...country,
 				}));
+				if (this.selected) {
+					this.selected = this.countries.find(({ code }) => code === this.selected.code);
+				}
 				this.loading = false;
 			});
 		},
