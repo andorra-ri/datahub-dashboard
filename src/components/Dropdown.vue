@@ -8,7 +8,7 @@
 				v-model="search"
 				:readonly="!searchable" />
 			<i :class="`icon mdi mdi-${isClearable ? 'close' : 'chevron-down'}`" @click="clear()" />
-			<ul v-if="!disabled" class="dropdown__options">
+			<ul v-if="!disabled" :class="`dropdown__options dropdown__options--${dir}`">
 				<li v-for="option in filteredOptions" :key="option.label" @click="select(option)">
 					<i v-if="option.icon" :class="`icon ${option.icon}`" />
 					{{ option.label }}
@@ -38,6 +38,7 @@ export default {
 		disabled: { type: Boolean, default: false },
 		clearable: { type: Boolean, default: false },
 		multiple: { type: Boolean, default: false },
+		dir: { type: String, default: 'down' },
 	},
 	data() {
 		return { search: undefined };
@@ -105,7 +106,7 @@ export default {
 		// box-shadow: 0 0 10px rgba(#000000, 0.1);
 		display: none;
 		left: 0;
-		margin-top: 3px;
+		margin: 3px 0;
 		max-height: 193px;
 		min-width: 150px;
 		overflow: auto;
@@ -113,6 +114,11 @@ export default {
 		position: absolute;
 		top: 100%;
 		z-index: 1;
+
+		&--up {
+			top: auto;
+			bottom: 100%;
+		}
 
 		// Components
 		li {

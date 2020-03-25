@@ -3,6 +3,9 @@
 		<router-link to="/" class="brand">
 			<img src="../assets/img/logo-actuatech.png" />
 		</router-link>
+		<router-link to="/visitants" class="navbar__anchor">
+			<i class="mdi mdi-human-handsdown" />
+		</router-link>
 	</div>
 </template>
 
