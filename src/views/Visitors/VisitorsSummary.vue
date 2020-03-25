@@ -61,7 +61,9 @@ export default {
 	},
 	methods: {
 		fetchSummary(since, until) {
-			const endpoint = `/visitors/summary?since=${since}&until=${until}`;
+			if (!since || !until) return;
+			const filter = `since=${since.toISOString()}&until=${until.toISOString()}`;
+			const endpoint = `/visitors/summary?${filter}`;
 			this.loading = true;
 			datahub.get(endpoint).then(({ data }) => {
 				this.countries = data;

@@ -54,7 +54,9 @@ export default {
 		dates: {
 			immediate: true,
 			handler({ since, until }) {
-				const endpoint = `/visitors/historic?since=${since}&until=${until}`;
+				if (!since || !until) return;
+				const filter = `since=${since.toISOString()}&until=${until.toISOString()}`;
+				const endpoint = `/visitors/historic?${filter}`;
 				this.loading = true;
 				datahub.get(endpoint).then(({ data: { dates } }) => {
 					this.historic = dates;
