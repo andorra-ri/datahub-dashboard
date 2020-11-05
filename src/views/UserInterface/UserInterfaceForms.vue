@@ -4,6 +4,7 @@
 		<form class="grid">
 
 			<!-- Inputs -->
+			<!-- eslint-disable max-len -->
 			<div class="row">
 				<div class="column col-3">
 					<label class="input fluid">
