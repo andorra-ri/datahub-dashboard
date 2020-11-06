@@ -11,7 +11,7 @@
 				<div class="row">
 					<div v-for="(stat, name) in group" :key="name" class="column stats__stat">
 						<h4>{{ $t(`visitors.country_stats.stat.${name}`) }}</h4>
-						<strong>{{ stat.value | round }}</strong>
+						<strong>{{ (stat.value | round) || 'N/A' }}</strong>
 						<em>{{ $t(`visitors.unit.${stat.unit}`) }}</em>
 					</div>
 				</div>
