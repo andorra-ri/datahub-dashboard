@@ -1,69 +1,55 @@
-<template lang="html">
+<template>
 	<section :class="['card', 'card--round', { 'loading': loading }]">
-		<h2><i class="icon mdi mdi-clock-outline" /> {{ $t('visitors.historic.title') }}</h2>
+		<h2><i class="icon mdi mdi-clock-outline" /> {{ t('visitors.historic.title') }}</h2>
 		<apex-chart
 			type="bar"
-			:options="chartOptions"
-			:series="historicSeries"
+			:options="options"
+			:series="columns"
 			height="300" />
 	</section>
 </template>
 
 <script>
-import datahub from '@/api/datahub';
-import ApexChart from 'vue-apexcharts';
-import { apexOptions, mergeDeep } from '@/utils/charts/apexOptions';
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import ApexChart from 'vue3-apexcharts';
+import { historic } from '/@/repositories/visitors';
+import apex from '/@/utils/charts';
+import mergeDeep from '/@/utils/merge-deep';
 
 const includes = (obj, key) => !obj.length || obj.includes(key);
 const sumAllowed = allowed => (sum, [key, value]) => (includes(allowed, key) ? sum + value : sum);
 const sumObject = (object, allowed) => Object.entries(object).reduce(sumAllowed(allowed), 0);
 
 export default {
-	name: 'visitors-historic',
-	components: { ApexChart },
-	props: {
-		dates: { type: Object, required: true },
-		filters: { type: Object, default: () => {} },
-	},
-	data() {
-		return {
-			loading: false,
-			historic: [],
-			chartOptions: mergeDeep(apexOptions.column, {
-				chart: { stacked: true },
-				tooltip: { intersect: true, shared: false },
-				plotOptions: { bar: { columnWidth: '20%' } },
-				xaxis: { type: 'datetime' },
-			}),
-		};
-	},
-	computed: {
-		historicSeries() {
-			const { countries: allowCountries } = this.filters;
-			return Object.values(this.historic.reduce((acc, { date, groups }) => {
+  name: 'VisitorsHistoric',
+  components: { ApexChart },
+  setup() {
+    const { t } = useI18n();
+    const loading = ref(false);
+
+    const options = mergeDeep(apex.column, {
+			chart: { stacked: true },
+			tooltip: { intersect: true, shared: false },
+			plotOptions: { bar: { columnWidth: '20%' } },
+			xaxis: { type: 'datetime' },
+		});
+
+    const columns = computed(() => {
+      const allowCountries = [];
+      const dates = Object.values(historic.value?.dates || {});
+      const series = dates.reduce((acc, { date, groups }) => {
 				groups.forEach(({ group, countries }) => {
-					const name = this.$t(`visitors.group.${group}`);
+					const name = t(`visitors.${group}`);
 					acc[group] = acc[group] || { name, data: [] };
 					acc[group].data.push({ x: date, y: sumObject(countries, allowCountries) });
 				});
 				return acc;
-			}, {}));
-		},
-	},
-	watch: {
-		dates: {
-			immediate: true,
-			handler({ since, until }) {
-				if (!since || !until) return;
-				const filter = `since=${since.toISOString()}&until=${until.toISOString()}`;
-				const endpoint = `/visitors/historic?${filter}`;
-				this.loading = true;
-				datahub.get(endpoint).then(({ data: { dates } }) => {
-					this.historic = dates;
-					this.loading = false;
-				});
-			},
-		},
-	},
+			}, {});
+      return Object.values(series);
+    });
+
+    return { t, loading, historic, columns, options };
+  },
 };
 </script>

@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 	<div class="screen">
 		<main class="content">
 			<header class="header">

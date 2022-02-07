@@ -1,76 +1,40 @@
-<template lang="html">
+<template>
   <section :class="['card', 'card--round', { 'loading': loading }]">
 		<div class="row">
-			<div v-for="(item, name) in summary" :key="name" class="column summary__item">
-				<h4>{{ $t(`visitors.group.${name}`) }}</h4>
-				<strong>{{ item.value | minorize }}</strong>
-				<em>{{ $t(`visitors.unit.${item.unit}`) }}</em>
+			<div v-for="(value, name) in summary" :key="name" class="column summary__item">
+				<h4>{{ t(`visitors.${name}`) }}</h4>
+				<strong>{{ numberFormat(value) }}</strong>
 			</div>
 		</div>
 	</section>
 </template>
 
 <script>
-import datahub from '@/api/datahub';
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import millify from 'millify';
+import { visitors } from '/@/repositories/visitors';
 
 export default {
-	name: 'visitors-summary',
-	filters: {
-		minorize(value) {
-			const isMillion = value > 1000000;
-			const rounded = Math.round((isMillion ? value / 1000000 : value) * 100) / 100;
-			return isMillion ? `${rounded}M` : rounded;
-		},
-	},
-	props: {
-		dates: { type: Object, required: true },
-		filters: { type: Object, default: () => {} },
-	},
-	data() {
-		return {
-			loading: false,
-			countries: [],
-		};
-	},
-	computed: {
-		summary() {
-			const { countries } = this.filters;
-			return this.countries
-				.filter(({ code }) => !countries.length || countries.includes(code))
-				.reduce((acc, { visitors, visits, spending }) => {
-					acc.visitors.value += visitors.uniques;
-					acc.trippers.value += visitors.trippers;
-					acc.tourists.value += visitors.tourists;
-					acc.visits.value += visits.tourists + visits.trippers;
-					acc.spending.value += spending.mean * visitors.uniques;
-					return acc;
-				}, {
-					visitors: { value: 0, unit: 'people' },
-					trippers: { value: 0, unit: 'people' },
-					tourists: { value: 0, unit: 'people' },
-					visits: { value: 0, unit: 'visits' },
-					spending: { value: 0, unit: 'euro' },
-				});
-		},
-	},
-	watch: {
-		dates: {
-			immediate: true,
-			handler({ since, until }) { this.fetchSummary(since, until); },
-		},
-	},
-	methods: {
-		fetchSummary(since, until) {
-			if (!since || !until) return;
-			const filter = `since=${since.toISOString()}&until=${until.toISOString()}`;
-			const endpoint = `/visitors/summary?${filter}`;
-			this.loading = true;
-			datahub.get(endpoint).then(({ data }) => {
-				this.countries = data;
-				this.loading = false;
-			});
-		},
-	},
+  name: 'VisitorsSummary',
+  setup() {
+    const { t } = useI18n();
+    const numberFormat = number => millify(number);
+    const loading = ref(false);
+
+    // Filter by countries
+    const summary = computed(() => visitors.value.reduce((acc, country) => {
+      acc.uniqueVisitors = (acc.uniqueVisitors || 0) + country.visitors.uniques;
+      acc.tourists = (acc.tourists || 0) + country.visitors.tourists;
+      acc.touristVisits = (acc.touristVisits || 0) + country.visits.tourists;
+      acc.trippers = (acc.trippers || 0) + country.visitors.trippers;
+      acc.tripperVisits = (acc.tripperVisits || 0) + country.visits.trippers;
+      acc.spending = (acc.spending || 0) + country.spending.mean * country.visitors.uniques;
+      return acc;
+    }, {}));
+
+    return { t, loading, summary, numberFormat };
+  },
 };
 </script>
 

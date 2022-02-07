@@ -1,13 +1,21 @@
-<template lang="html">
+<template>
 	<div class="navbar">
 		<router-link to="/" class="brand">
 			<img src="../assets/img/logo-actuatech.png" />
 		</router-link>
-		<router-link to="/visitants" class="navbar__anchor">
-			<i class="mdi mdi-human-handsdown" />
-		</router-link>
+    <div class="navbar__center">
+      <router-link to="/visitants" class="navbar__anchor">
+        <i class="mdi mdi-human-handsdown" />
+      </router-link>
+    </div>
 	</div>
 </template>
+
+<script>
+export default {
+  name: 'NavBar',
+}
+</script>
 
 <style lang="scss" scoped>
 .navbar {
@@ -18,6 +26,10 @@
 	flex-direction: column;
 	height: 100vh;
 	justify-content: center;
+
+  &__center {
+    margin: auto 0;
+  }
 
 	&__anchor {
 		color: #bac4d2;
@@ -31,7 +43,6 @@
 
 	.brand {
 		display: block;
-		margin-bottom: auto;
 
 		img {
 			height: 30px;

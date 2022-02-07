@@ -1,79 +1,53 @@
-<template lang="html">
+<template >
 	<section :class="['card', 'card--round', { 'loading': loading }]">
-		<h2><i class="icon mdi mdi-trophy" /> {{ $t('visitors.countries_ranking.title') }}</h2>
-		<fieldset class="picker content--right">
+		<h2><i class="icon mdi mdi-trophy" /> {{ t('visitors.ranking.title') }}</h2>
+    <fieldset class="picker content--right">
 			<label>
-				<input type="radio" v-model="ranker" value="visitors.total" />
-				<span>Total</span>
+				<input type="radio" v-model="ranker" value="visitors.uniques" />
+				<span>{{ t('visitors.uniqueVisitors') }}</span>
 			</label>
 			<label>
 				<input type="radio" v-model="ranker" value="visitors.trippers" />
-				<span>{{ $t('visitors.group.trippers') }}</span>
+				<span>{{ t('visitors.trippers') }}</span>
 			</label>
 			<label>
 				<input type="radio" v-model="ranker" value="visitors.tourists" />
-				<span>{{ $t('visitors.group.tourists') }}</span>
+				<span>{{ t('visitors.tourists') }}</span>
 			</label>
 		</fieldset>
-		<ranking
-			:list="filteredCountries"
+    <ranking
+			:list="visitors"
 			:ranker="ranker"
 			:pagination="20"
-			show-values>
+			show-values
+			:unit-suffix="t('units.people')">
 			<template v-slot="{ item }">
 				<i :class="`flag flag-${item.code} margin-r-1`" />
-				{{ $t(`countries.${item.code}`) }}
+				{{ item.name }}
 			</template>
 		</ranking>
 	</section>
 </template>
 
 <script>
-import datahub from '@/api/datahub';
-import Ranking from '@/components/Ranking.vue';
-
-const sumObject = object => Object.values(object).reduce((sum, value) => sum + value, 0);
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { visitors } from '/@/repositories/visitors';
+import Ranking from '/@/components/Ranking.vue';
 
 export default {
-	name: 'visitors-ranking',
-	components: { Ranking },
-	props: {
-		dates: { type: Object, required: true },
-		filters: { type: Object, default: () => {} },
-	},
-	data() {
-		return {
-			loading: false,
-			countries: [],
-			ranker: 'visitors.total',
-		};
-	},
-	computed: {
-		filteredCountries() {
-			const { countries } = this.filters;
-			return this.countries
-				.filter(({ code }) => !countries.length || countries.includes(code))
-				.map((country) => {
-					const visitors = { ...country.visitors, total: sumObject(country.visitors) };
-					const visits = { ...country.visits, total: sumObject(country.visits) };
-					return { ...country, visitors, visits };
-				});
-		},
-	},
-	watch: {
-		dates: {
-			immediate: true,
-			handler({ since, until }) {
-				if (!since || !until) return;
-				const filter = `since=${since.toISOString()}&until=${until.toISOString()}`;
-				const endpoint = `/visitors/summary?${filter}`;
-				this.loading = true;
-				datahub.get(endpoint).then(({ data }) => {
-					this.countries = data;
-					this.loading = false;
-				});
-			},
-		},
-	},
+  name: 'VisitorsRanking',
+  components: { Ranking },
+  setup() {
+    const loading = ref(false);
+    const { t } = useI18n();
+    const ranker = ref('visitors.uniques');
+
+    return { t, loading, visitors, ranker };
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+.picker { margin: 20px 0 10px; }
+</style>

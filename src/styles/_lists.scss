@@ -1,0 +1,40 @@
+.list-values {
+    margin: 10px 0;
+
+    li {
+        display: flex;
+        align-items: center;
+        padding: 10px 5px;
+
+        & + li { border-top: 1px solid #f0f0f0; }
+        
+        .name { margin-right: auto; }
+
+        .value {
+            font-weight: bold;
+            margin: 0 3px;
+        }
+  
+        .unit {
+            color: #999;
+            font-size: 0.8em;
+        }
+    }
+}
+
+.stats-list {
+    @extend .list-values;
+}
+
+.ranking-list {
+    @extend .list-values;
+
+    .rank {
+        font-size: 0.9em;
+		color: #aaa;
+        margin-right: 15px;
+    }
+
+    .prefix,
+    .suffix {  @extend .unit; }
+}

@@ -1,3 +1,4 @@
+input[type=checkbox],
 input[type=radio] {
 	appearance: none;
 	background: #fff;
@@ -30,7 +31,6 @@ input[type=radio] {
 }
 
 input[type=checkbox] {
-	@extend input[type=radio]; // stylelint-disable-line
 
 	border-radius: 3px;
 	&:checked { border-width: 6px 3px; }

@@ -1,19 +1,13 @@
 <template>
-	<div id="app">
-		<nav-bar />
-		<router-view />
-	</div>
+	<nav-bar />
+	<router-view />
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue';
+import NavBar from '/@/components/NavBar.vue';
 
 export default {
-	name: 'innohub',
+	name: 'App',
 	components: { NavBar },
 };
 </script>
-
-<style lang="scss">
-@import '@/styles/index.scss';
-</style>

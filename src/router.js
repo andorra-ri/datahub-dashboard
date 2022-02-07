@@ -1,12 +1,8 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import Home from './views/Home.vue';
 
-Vue.use(Router);
-
-export default new Router({
-	mode: 'history',
-	base: process.env.BASE_URL,
+export default createRouter({
+	history: createWebHistory(),
 	routes: [
 		{
 			path: '/',
@@ -14,14 +10,9 @@ export default new Router({
 			component: Home,
 		},
 		{
-			path: '/ui',
-			name: 'user-interface',
-			component: () => import('@/views/UserInterface.vue'),
-		},
-		{
 			path: '/visitants',
 			name: 'visitors',
-			component: () => import('@/views/Visitors.vue'),
+			component: () => import('./views/visitors/Visitors.vue'),
 		},
 	],
 });

@@ -16,8 +16,8 @@ $flags: ad, ae, af, ag, ai, al, am, an, ao, ar, as, at, au, aw, ax, az, ba, bb, 
 	}
 
 	@each $flag in $flags { // stylelint-disable-line
-		&-#{$flag} { background-image: url('./assets/img/icons/flags/#{$flag}.svg'); }
+		&-#{$flag} { background-image: url('/flags/#{$flag}.svg'); }
 	}
 
-	&-unknown { background-image: url('./assets/img/icons/flags/pirate.svg'); }
+	&-unknown { background-image: url('./flags/pirate.svg'); }
 }

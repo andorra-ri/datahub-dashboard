@@ -1,57 +1,57 @@
-<template lang="html">
+<template >
 	<aside class="sidebar card">
 		<header class="header">
-			<h2><i class="icon mdi mdi-filter" /> Filtres</h2>
-			<h3>Periode</h3>
-			<calendar v-model="datesRange" :not-after="new Date()" range />
-			<h3>Origen</h3>
-			<dropdown
-				:options="countries.options"
-				v-model="countries.selected"
-				multiple
-				searchable
-				clearable
-				placeholder="Filtrar per origen"
-				class="fluid" />
-		<p class="content--right">
-			<button @click="updateFilters">Filtrar</button>
+			<h2><i class="icon mdi mdi-filter" /> {{ t('filters.title') }}</h2>
+			<h3>{{ t('filters.period') }}</h3>
+			<calendar v-model="period" :locale="locale" :not-after="new Date()" />
+			<h3>{{ t('filters.origin') }}</h3>
+      <dropdown
+        v-model="countries"
+        :options="COUNTRIES"
+        attribute="name"
+        searchable
+        clearable
+        :placeholder="t('visitors.stats.selectCountry')"
+        :no-options-text="t('visitors.stats.noOptions')">
+        <template #tags="{ tag }">{{ tag.name }}</template>
+        <template #option="{ option }">
+          <i :class="`flag flag-${option.code} margin-r-1`" />
+          {{ option.name }}
+        </template>
+      </dropdown>
+		<p>
+			<button @click="apply">{{ t('filters.filter') }}</button>
 		</p>
 		</header>
 	</aside>
 </template>
 
 <script>
-import Dropdown from '@/components/Dropdown.vue';
-import Calendar from '@/components/Calendar.vue';
-import countries from '@/locales/ca/countries';
-
-const { unknown, ad, eu, ...cleanCountries } = countries;
+import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import Dropdown from '/@/components/Dropdown.vue';
+import Calendar from '/@/components/Calendar.vue';
+import config from '/@/config.yaml';
 
 export default {
-	name: 'visitors-filter',
-	components: { Dropdown, Calendar },
-	data() {
-		return {
-			datesRange: [new Date(), new Date()],
-			countries: {
-				selected: [],
-				options: Object.keys(cleanCountries).map(code => ({
-					value: code,
-					label: this.$t(`countries.${code}`),
-					icon: `flag flag-${code}`,
-				})),
-			},
-		};
-	},
-	methods: {
-		updateFilters() {
-			const filters = {
-				datesRange: this.datesRange,
-				countries: this.countries.selected.map(({ value }) => value),
-			};
-			this.$emit('update', filters);
-		},
-	},
-	mounted() { this.updateFilters(); },
+  name: 'VisitorsFilters',
+  components: { Dropdown, Calendar },
+  props: {
+    modelValue: { type: Object, required: true },
+  },
+  setup() {
+    const { t, locale } = useI18n();
+    const period = ref([new Date(), new Date()]);
+    const countries = ref([]);
+
+    const COUNTRIES = config.countries.map(code => ({ code, name: t(`countries.${code}`) }));
+
+    const apply = () => {
+      const [since, until] = [...period.value].sort((a, b) => a - b);
+
+    };
+
+    return { t, locale, COUNTRIES, period, countries, apply };
+  },
 };
 </script>

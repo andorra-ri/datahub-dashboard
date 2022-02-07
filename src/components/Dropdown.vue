@@ -1,96 +1,123 @@
 <template>
 	<div class="dropdown">
-		<label :class="['input', { 'input--active': !multiple && value, 'disabled': disabled }]">
-			<i v-if="selected.icon" :class="`icon ${selected.icon}`" />
+		<label :class="['input', { 'active': !multiple && modelValue, 'disabled': disabled }]">
+      <slot name="pre" />
+      <ul v-if="multiple" class="dropdown__tags">
+			  <li v-for="tag in modelValue" :key="attr(tag)">
+				  <slot :tag="tag" name="tags">{{ attr(tag) }}</slot>
+				  <i @click="toggle(tag)">&times;</i>
+			  </li>
+		  </ul>
 			<input
 				type="text"
-				:placeholder="selected.label"
+				:placeholder="attr(selected)"
 				v-model="search"
 				:readonly="!searchable" />
-			<i :class="`icon mdi mdi-${isClearable ? 'close' : 'chevron-down'}`" @click="clear()" />
-			<ul v-if="!disabled" :class="`dropdown__options dropdown__options--${dir}`">
-				<li v-for="option in filteredOptions" :key="option.label" @click="select(option)">
-					<i v-if="option.icon" :class="`icon ${option.icon}`" />
-					{{ option.label }}
-				</li>
-				<p v-if="!filteredOptions.length" class="no-options">No results found</p>
-			</ul>
-		</label>
-		<ul v-if="multiple" class="dropdown__tags">
-			<li v-for="option in value" :key="option.label">
-				{{ option.label }}
-				<i @click="unselect(option)">&times;</i>
-			</li>
+			<i :class="`icon mdi mdi-${clearable && modelValue ? 'close' : 'chevron-down'}`" @click="clear()" />
+    </label>
+    <ul v-if="!disabled" :class="`dropdown__options dropdown__options--${dir}`">
+      <li
+        v-for="option in filteredOptions"
+        :key="attr(option)"
+        @click="toggle(option)">
+        <slot :option="option" name="option">{{ attr(option) }}</slot>
+      </li>
+      <p v-if="!filteredOptions.length" class="no-options">{{ noOptionsText }}</p>
 		</ul>
 	</div>
 </template>
 
 <script>
-const normalize = str => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+import { ref, computed } from 'vue';
+
+const normalize = string => {
+  if (typeof string !== 'string') return '';
+  return string.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+};
 
 export default {
-	name: 'dropdown',
+	name: 'Dropdown',
 	props: {
 		options: { type: Array, required: true },
-		value: { required: true },
+    attribute: { type: String, default: 'label' },
+		modelValue: { type: [Object, String, Number], default: undefined },
 		placeholder: { type: String, default: 'Select...' },
 		searchable: { type: Boolean, default: false },
 		disabled: { type: Boolean, default: false },
 		clearable: { type: Boolean, default: false },
-		multiple: { type: Boolean, default: false },
+    noOptionsText: { type: String, default: 'No results found' },
 		dir: { type: String, default: 'down' },
 	},
-	data() {
-		return { search: undefined };
-	},
-	computed: {
-		selected() {
-			return !this.value || this.multiple ? { label: this.placeholder } : this.value;
-		},
-		filteredOptions() {
-			const search = this.search && normalize(this.search);
-			return this.options.filter((option) => {
-				const searchMatch = search ? normalize(option.label).includes(search) : true;
-				return searchMatch && !this.isSelected(option);
-			});
-		},
-		isClearable() {
-			return this.clearable && this.isSelected();
-		},
-	},
-	methods: {
-		clear() {
-			if (this.isClearable) {
-				this.search = '';
-				this.$emit('input', this.multiple ? [] : undefined);
-			}
-		},
-		isSelected(option) {
-			if (!option) return this.multiple ? this.value.length : this.value;
-			return Array.isArray(this.value)
-				? this.value.find(({ label }) => label === option.label)
-				: this.value && this.value.label === option.label;
-		},
-		select(option) {
-			this.search = '';
-			this.$emit('input', this.multiple ? [...new Set([...this.value, option])] : option);
-		},
-		unselect(option) {
-			this.$emit('input', this.value.filter(({ value }) => value !== option.value));
-		},
-	},
+  setup(props, { emit }) {
+    const search = ref(undefined);
+
+    const attr = item => item?.[props.attribute] || item;
+
+    const multiple = computed(() => Array.isArray(props.modelValue));
+
+    const selected = computed(() => (
+      multiple.value || !props.modelValue
+        ? { [props.attribute]: props.placeholder }
+        : props.modelValue
+    ));
+
+    const filteredOptions = computed(() => {
+      const needle = normalize(search.value);
+      return props.options.filter(option => {
+        const match = needle
+          ? normalize(attr(option)).includes(needle)
+          : true;
+        return match;
+      });
+    });
+
+    const toggle = option => {
+      search.value = '';
+      const value = multiple.value
+        ? !!props.modelValue.find(item => attr(item) === attr(option))
+          ? props.modelValue.filter(item => attr(item) !== attr(option))
+          : [...new Set([...props.modelValue, option])]
+        : option;
+      emit('update:modelValue', value);
+    };
+
+    /*
+    const unselect = option => {
+      const values = props.modelValue.filter(item => item !== option);
+      emit('update:modelValue', values);
+    }
+    */
+
+    const clear = () => {
+      if (props.clearable) {
+        search.value = '';
+        emit('update:modelValue', multiple.value ? [] : undefined);
+      }
+    };
+
+    return { search, selected, filteredOptions, toggle, clear, multiple, attr };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .dropdown {
 	display: inline-block;
+  position: relative;
 
-	// Options
+	// Selected
 	.input {
-		position: relative;
+    display: flex;
+    align-items: center;
 		overflow: visible;
-		&--active input::placeholder { color: inherit; }
+    flex-wrap: wrap;
+
+    input { flex: 1 1 50px; }
+
+    &.active input::placeholder {
+      opacity: 1;
+      color: inherit;
+    }
 	}
 
 	&.fluid {
@@ -100,15 +127,15 @@ export default {
 
 	// Components
 	&__options {
+		box-sizing: border-box;
 		background: #fff;
 		border: 1px solid #a5acb6;
-		border-radius: 5px;
-		// box-shadow: 0 0 10px rgba(#000000, 0.1);
+		border-radius: 3px;
 		display: none;
 		left: 0;
-		margin: 3px 0;
+		margin: 2px;
 		max-height: 193px;
-		min-width: 150px;
+		min-width: 100%;
 		overflow: auto;
 		padding: 5px;
 		position: absolute;
@@ -128,7 +155,7 @@ export default {
 			cursor: pointer;
 			display: flex;
 			line-height: inherit;
-			padding: 0 12px;
+			padding: 5px 12px;
 			white-space: nowrap;
 
 			// Components
@@ -145,7 +172,7 @@ export default {
 
 		// State
 		&:hover,
-		:focus ~ & { display: block; }
+		:focus-within > & { display: block; }
 	}
 
 	&__tags {

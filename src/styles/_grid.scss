@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .grid {
 	display: flex;
 	flex-direction: column;
@@ -10,7 +12,6 @@
 		display: flex;
 		flex: auto;
 		flex-direction: row;
-		flex-wrap: wrap;
 
 		.column {
 			background-clip: padding-box;
@@ -19,7 +20,7 @@
 			flex: 1 1 auto;
 
 			@for $i from 1 through $grid__columns { // stylelint-disable-line
-				&.col-#{$i} { flex: 0 0 percentage(1 / $grid__columns * $i) !important; }
+				&.col-#{$i} { flex: 0 0 percentage(math.div(1, $grid__columns) * $i) !important; }
 			}
 		}
 	}
