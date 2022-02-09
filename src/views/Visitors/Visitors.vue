@@ -3,9 +3,7 @@
     <main class="content">
       <header class="header">
         <h1><em>{{ t('visitors.section') }}</em>{{ t('visitors.title') }}</h1>
-        <!--
-        <p>{{ dateFormat(dates.since, 'FULL_SHORT', locale) }} - {{ dateFormat(dates.until, 'FULL_SHORT', locale) }}</p>
-        -->
+        <p>{{ range }}</p>
       </header>
       <div class="grid">
         <div class="row">
@@ -33,7 +31,9 @@
 </template>
 
 <script>
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { filters } from '/@/repositories/visitors';
 import { dateFormat } from '/@/utils/date';
 import VisitorsSummary from './VisitorsSummary.vue';
 import VisitorsHistoric from './VisitorsHistoric.vue';
@@ -53,7 +53,14 @@ export default {
   setup() {
     const { t, locale } = useI18n();
 
-    return { t, locale, dateFormat };
+    const range = computed(() => {
+      const period = filters.period.sort((a, b) => a - b);
+      const since = dateFormat(period[0], 'FULL_SHORT', locale);
+      const until = dateFormat(period[1], 'FULL_SHORT', locale);
+      return `${since} - ${until}`;
+    });
+
+    return { t, locale, range };
   },
 };
 </script>
