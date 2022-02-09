@@ -2,6 +2,7 @@ visitors:
   title: Visitants
   section: Turisme
 
+  profile: Perfil del visitant
   visitors: Visitants
   tourists: Turistes
   trippers: Excursionistes
@@ -9,7 +10,7 @@ visitors:
   touristVisits: Visites turistes
   tripperVisits: Visites excursionistes
 
-  spending: Despesa
+  spending: Despesa econòmica
   spending_disclaimer: Les dades mostrades corresponen a perfils genèrics de pagaments realitzats únicament amb VISA.
   
   # Historic

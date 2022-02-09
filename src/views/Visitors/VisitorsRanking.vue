@@ -18,7 +18,7 @@
     <ranking
       :list="countries"
       :ranker="ranker"
-      :pagination="20"
+      :pagination="10"
       show-values
       :unit-suffix="t('units.people')">
       <template #default="{ item }">
