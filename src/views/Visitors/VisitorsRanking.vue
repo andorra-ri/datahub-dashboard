@@ -1,20 +1,7 @@
 <template>
   <section :class="['card', 'card--round', { 'loading': loading }]">
     <h2><i class="icon mdi mdi-trophy" /> {{ t('visitors.ranking.title') }}</h2>
-    <fieldset class="picker content--right">
-      <label>
-        <input v-model="ranker" type="radio" value="visitors.uniques">
-        <span>{{ t('visitors.unique') }}</span>
-      </label>
-      <label>
-        <input v-model="ranker" type="radio" value="visitors.trippers">
-        <span>{{ t('visitors.trippers') }}</span>
-      </label>
-      <label>
-        <input v-model="ranker" type="radio" value="visitors.tourists">
-        <span>{{ t('visitors.tourists') }}</span>
-      </label>
-    </fieldset>
+    <picker v-model="ranker" :options="rankers" class="content--right" />
     <ranking
       :list="countries"
       :ranker="ranker"
@@ -35,16 +22,19 @@ import { useI18n } from 'vue-i18n';
 import { isWaitingFor } from '/@/services/wait';
 import { countries } from '/@/repositories/visitors';
 import Ranking from '/@/components/Ranking.vue';
+import Picker from '/@/components/Picker.vue';
+
+const rankers = ['visitors.uniques', 'visitors.trippers', 'visitors.tourists'];
 
 export default {
   name: 'VisitorsRanking',
-  components: { Ranking },
+  components: { Ranking, Picker },
   setup() {
     const { t } = useI18n();
     const ranker = ref('visitors.uniques');
     const loading = isWaitingFor('load-visitors');
 
-    return { t, loading, countries, ranker };
+    return { t, loading, countries, rankers, ranker };
   },
 };
 </script>

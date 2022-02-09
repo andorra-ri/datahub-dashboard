@@ -32,7 +32,7 @@ export default {
 
     // Filter by countries
     const summary = computed(() => countries.value.reduce((acc, country) => {
-      acc.visitors.unique += country.visitors.uniques;
+      acc.visitors.uniques += country.visitors.uniques;
       acc.visitors.tourists += country.visitors.tourists;
       acc.visitors.trippers += country.visitors.trippers;
       acc.visits.tourists += country.visits.tourists;
@@ -40,7 +40,7 @@ export default {
       acc.visits.overnights += country.overnights;
       return acc;
     }, {
-      visitors: { unique: 0, trippers: 0, tourists: 0 },
+      visitors: { uniques: 0, trippers: 0, tourists: 0 },
       visits: { trippers: 0, tourists: 0, overnights: 0 },
     }));
 
