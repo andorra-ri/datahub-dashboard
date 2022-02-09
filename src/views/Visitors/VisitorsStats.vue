@@ -27,12 +27,11 @@
       </article>
       <article>
         <h3>{{ t('visitors.spending') }}</h3>
-        <stats-list :stats="stats.spending" namespace="visitors.stats" />
         <apex-chart
-          v-if="stats.spending.total.value"
           type="treemap"
           :series="spendingTreeSeries"
           :options="spendingTreeOptions" />
+        <p class="note">{{ t('visitors.spending_disclaimer') }}</p>
       </article>
     </div>
   </section>
@@ -56,7 +55,7 @@ export default {
     const country = ref(undefined);
 
     const stats = computed(() => {
-      const { visitors, visits, overnights, spending } = country.value;
+      const { visitors, visits, overnights } = country.value;
       return {
         trippers: {
           visitors: { value: visitors.trippers, unit: 'people' },
@@ -70,30 +69,21 @@ export default {
           overnights: { value: overnights, unit: 'nights' },
           overnightsMean: { value: overnights / visits.tourists, precision: 2, unit: 'nightsVisit' },
         },
-        spending: {
-          total: { value: spending.mean * visitors.uniques, precision: 2, unit: 'euro' },
-          mean: { value: spending.mean, precision: 2, unit: 'euro' },
-        },
       };
     });
 
     const spendingTreeSeries = computed(() => {
-      const total = country.value.spending.mean * country.value.visitors.uniques;
       const data = Object.entries(country.value.spending.merchant)
         .map(([name, value]) => ({
           x: t(`visitors.stats.merchant.${name}`),
-          y: (value * total) / 100,
+          y: value,
         }));
       return [{ data }];
     });
 
     const spendingTreeOptions = {
       chart: { toolbar: { show: false } },
-      yaxis: {
-        labels: {
-          formatter: value => `${parseFloat(value.toFixed(2)).toLocaleString()} €`,
-        },
-      },
+      yaxis: { labels: { formatter: val => `${parseFloat(val.toFixed(2)).toLocaleString()}%` } },
     };
 
     watch(countries, () => {

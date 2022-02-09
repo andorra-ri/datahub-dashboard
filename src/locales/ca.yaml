@@ -8,7 +8,9 @@ visitors:
   uniqueVisitors: Visitants únics
   touristVisits: Visites turistes
   tripperVisits: Visites excursionistes
+
   spending: Despesa
+  spending_disclaimer: Les dades mostrades corresponen a perfils genèrics de pagaments realitzats únicament amb VISA.
   
   # Historic
   historic:

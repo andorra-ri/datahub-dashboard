@@ -29,7 +29,6 @@ export default {
       acc.touristVisits = (acc.touristVisits || 0) + country.visits.tourists;
       acc.trippers = (acc.trippers || 0) + country.visitors.trippers;
       acc.tripperVisits = (acc.tripperVisits || 0) + country.visits.trippers;
-      acc.spending = (acc.spending || 0) + country.spending.mean * country.visitors.uniques;
       return acc;
     }, {}));
 
