@@ -1,23 +1,23 @@
-<template >
-	<div class="calendar">
-		<header class="header">
-			<i class=" mdi mdi-chevron-left prev" @click="changeMonth(-1)" />
-			<span>{{ labels.month }} {{ labels.year }}</span>
-			<i class="mdi mdi-chevron-right next" @click="changeMonth(1)" />
-		</header>
-		<ul class="weekdays">
-			<li v-for="day in labels.weekdays" :key="day">{{ day }}</li>
-		</ul>
-		<ul class="days">
-			<li
+<template>
+  <div class="calendar">
+    <header class="header">
+      <i class=" mdi mdi-chevron-left prev" @click="changeMonth(-1)" />
+      <span>{{ labels.month }} {{ labels.year }}</span>
+      <i class="mdi mdi-chevron-right next" @click="changeMonth(1)" />
+    </header>
+    <ul class="weekdays">
+      <li v-for="day in labels.weekdays" :key="day">{{ day }}</li>
+    </ul>
+    <ul class="days">
+      <li
         v-for="day in days"
         :key="day.date"
         :class="day.classes"
         @click="select(day)">
-				{{ day.label }}
-			</li>
-		</ul>
-	</div>
+        {{ day.label }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -82,22 +82,22 @@ export default {
     });
 
     const select = ({ disabled, date }) => {
-			if (disabled) return;
+      if (disabled) return;
       // Range calendar
-			if (Array.isArray(props.modelValue)) {
+      if (Array.isArray(props.modelValue)) {
         const [, last] = props.modelValue;
-				if (last && date) {
+        if (last && date) {
           const dates = [last, date];
-					emit('update:modelValue', dates);
-					emit('select', dates);
-				}
+          emit('update:modelValue', dates);
+          emit('select', dates);
+        }
       // Single day calendar
-			} else {
-				emit('update:modelValue', date);
-				emit('select', date);
-			}
-			cursor.value = date;
-		};
+      } else {
+        emit('update:modelValue', date);
+        emit('select', date);
+      }
+      cursor.value = date;
+    };
 
     const changeMonth = months => {
       cursor.value = add(cursor.value, { months });
@@ -110,74 +110,74 @@ export default {
 
 <style lang="scss" scoped>
 .calendar {
-	display: inline-block;
-	margin: 5px;
+  display: inline-block;
+  margin: 5px;
 
-	&.fluid { display: block; }
+  &.fluid { display: block; }
 
-	.header {
-		font-weight: 700;
-		padding: 10px 0;
+  .header {
+    font-weight: 700;
+    padding: 10px 0;
     display: flex;
 
     span {
       margin: auto;
       text-transform: uppercase;
     }
-	}
+  }
 
-	.prev,
-	.next {
-		cursor: pointer;
-		margin: 0 15px;
-	}
+  .prev,
+  .next {
+    cursor: pointer;
+    margin: 0 15px;
+  }
 
-	.weekdays {
-		display: grid;
-		grid-template-columns: repeat(7, auto);
+  .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
 
-		li {
-			font-size: 0.75em;
-			line-height: 3em;
-			text-align: center;
-			text-transform: uppercase;
-		}
-	}
+    li {
+      font-size: 0.75em;
+      line-height: 3em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
 
-	.days {
-		display: grid;
-		grid-template-columns: repeat(7, auto);
-	}
+  .days {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+  }
 
-	.day {
-		cursor: pointer;
-		line-height: 3em;
-		padding: 0 10px;
-		text-align: center;
+  .day {
+    cursor: pointer;
+    line-height: 3em;
+    padding: 0 10px;
+    text-align: center;
 
-		&--today {
-			color: #461ea3;
-			font-weight: bold;
-		}
+    &--today {
+      color: #461ea3;
+      font-weight: bold;
+    }
 
-		&--between {
-			background: lighten(#461ea3, 20%);
-			color: #fff;
-		}
+    &--between {
+      background: lighten(#461ea3, 20%);
+      color: #fff;
+    }
 
     &--selected {
-			background: #461ea3 !important;
-			color: #fff;
-			cursor: default;
-		}
+      background: #461ea3 !important;
+      color: #fff;
+      cursor: default;
+    }
 
-		&--faded { opacity: 0.5; }
+    &--faded { opacity: 0.5; }
 
-		&--disabled {
-			background: #f8f8f8;
-			color: #dfe2e6;
-			cursor: not-allowed;
-		}
-	}
+    &--disabled {
+      background: #f8f8f8;
+      color: #dfe2e6;
+      cursor: not-allowed;
+    }
+  }
 }
 </style>

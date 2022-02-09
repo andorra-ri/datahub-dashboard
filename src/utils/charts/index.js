@@ -10,10 +10,10 @@ import Area from './area';
 import SingleColumn from './single-column';
 
 export default {
-	line: mergeDeep(Global, Line),
-	column: mergeDeep(Global, Column),
-	donut: mergeDeep(Global, Donut),
-	heatmap: mergeDeep(Global, Heatmap),
-	area: mergeDeep(Global, Area),
-	singleColumn: mergeDeep(Global, SingleColumn),
+  line: mergeDeep(Global, Line),
+  column: mergeDeep(Global, Column),
+  donut: mergeDeep(Global, Donut),
+  heatmap: mergeDeep(Global, Heatmap),
+  area: mergeDeep(Global, Area),
+  singleColumn: mergeDeep(Global, SingleColumn),
 };

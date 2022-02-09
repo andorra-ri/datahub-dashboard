@@ -1,10 +1,10 @@
-<template >
-	<aside class="sidebar card">
-		<header class="header">
-			<h2><i class="icon mdi mdi-filter" /> {{ t('filters.title') }}</h2>
-			<h3>{{ t('filters.period') }}</h3>
-			<calendar v-model="period" :locale="locale" :not-after="new Date()" />
-			<h3>{{ t('filters.origin') }}</h3>
+<template>
+  <aside class="sidebar card">
+    <header class="header">
+      <h2><i class="icon mdi mdi-filter" /> {{ t('filters.title') }}</h2>
+      <h3>{{ t('filters.period') }}</h3>
+      <calendar v-model="period" :locale="locale" :not-after="new Date()" />
+      <h3>{{ t('filters.origin') }}</h3>
       <dropdown
         v-model="countries"
         :options="COUNTRIES"
@@ -18,11 +18,11 @@
           {{ option.name }}
         </template>
       </dropdown>
-		<p>
-			<button @click="apply">{{ t('filters.filter') }}</button>
-		</p>
-		</header>
-	</aside>
+      <p>
+        <button @click="apply">{{ t('filters.filter') }}</button>
+      </p>
+    </header>
+  </aside>
 </template>
 
 <script>
@@ -45,7 +45,7 @@ export default {
 
     const apply = () => {
       filters.period = period.value;
-      filters.countries = countries.value.map(country => country.code);;
+      filters.countries = countries.value.map(country => country.code);
     };
 
     return { t, locale, COUNTRIES, period, countries, apply };

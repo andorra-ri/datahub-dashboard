@@ -9,22 +9,20 @@ export const filters = reactive({
   countries: [],
 });
 
-export const visitors = computed(() => {
-  return filters.countries?.length
-    ? VISITORS.value.filter(({ code }) => filters.countries.includes(code))
-    : VISITORS.value;
-});
+export const visitors = computed(() => (filters.countries?.length
+  ? VISITORS.value.filter(({ code }) => filters.countries.includes(code))
+  : VISITORS.value
+));
 
 export const historic = computed(() => {
   const dates = HISTORIC.value.dates?.map(date => ({
     ...date,
     groups: date.groups.map(group => ({
       ...group,
-      sum: Object.entries(group.countries).reduce((acc,[code, count]) => {
-        if (!filters.countries.length || filters.countries.includes(code)) acc += count;
-        return acc;
-      }, 0)
-    }))
+      sum: Object.entries(group.countries).reduce((acc, [code, count]) => (
+        !filters.countries.length || filters.countries.includes(code) ? acc + count : acc
+      ), 0),
+    })),
   }));
   return { ...HISTORIC.value, dates };
 });

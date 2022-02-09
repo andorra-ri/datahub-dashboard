@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+
 const DATE_FORMATS = {
   DATETIME_SHORT: { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' },
   FULL_SHORT: { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' },

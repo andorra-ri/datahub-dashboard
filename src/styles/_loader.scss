@@ -2,25 +2,25 @@ $fade-color: rgba(#fff, 0.9);
 $spinner-speed: 1s;
 
 .loading {
-	position: relative;
-	overflow: hidden;
+  position: relative;
+  overflow: hidden;
 
-	&::after {
-		text-align: center;
-		content: '\F771';
-		background: $fade-color;
-		color: #461ea3;
-		font: 30px 'Material Design Icons', sans-serif;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		margin: -15px 0 0 -15px;
-		animation: loading-spin $spinner-speed infinite linear;
-		box-shadow: 0 0 0 1000px $fade-color;
-	}
+  &::after {
+    text-align: center;
+    content: '\F771';
+    background: $fade-color;
+    color: #461ea3;
+    font: 30px 'Material Design Icons', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -15px 0 0 -15px;
+    animation: loading-spin $spinner-speed infinite linear;
+    box-shadow: 0 0 0 1000px $fade-color;
+  }
 }
 
 @keyframes loading-spin {
-	0% { transform: rotate(0deg); }
-	100% { transform: rotate(360deg); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

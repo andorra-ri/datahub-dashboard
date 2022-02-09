@@ -1,19 +1,18 @@
 <template>
-	<div class="dropdown">
-		<label :class="['input', { 'active': !multiple && modelValue, 'disabled': disabled }]">
+  <div class="dropdown">
+    <label :class="['input', { 'active': !multiple && modelValue, 'disabled': disabled }]">
       <slot name="pre" />
       <ul v-if="multiple" class="dropdown__tags">
-			  <li v-for="tag in modelValue" :key="attr(tag)">
-				  <slot :tag="tag" name="tags">{{ attr(tag) }}</slot>
-				  <i @click="toggle(tag)">&times;</i>
-			  </li>
-		  </ul>
-			<input
-				type="text"
-				:placeholder="attr(selected)"
-				v-model="search"
-				:readonly="!searchable" />
-			<i :class="`icon mdi mdi-${clearable && modelValue ? 'close' : 'chevron-down'}`" @click="clear()" />
+        <li v-for="tag in modelValue" :key="attr(tag)">
+          <slot :tag="tag" name="tags">{{ attr(tag) }}</slot>
+          <i @click="toggle(tag)">&times;</i>
+        </li>
+      </ul>
+      <input
+        v-model="search"
+        type="text"
+        :placeholder="attr(selected)"
+        :readonly="!searchable">
     </label>
     <ul v-if="!disabled" :class="`dropdown__options dropdown__options--${dir}`">
       <li
@@ -23,8 +22,8 @@
         <slot :option="option" name="option">{{ attr(option) }}</slot>
       </li>
       <p v-if="!filteredOptions.length" class="no-options">{{ noOptionsText }}</p>
-		</ul>
-	</div>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -36,18 +35,18 @@ const normalize = string => {
 };
 
 export default {
-	name: 'Dropdown',
-	props: {
-		options: { type: Array, required: true },
+  name: 'Dropdown',
+  props: {
+    options: { type: Array, required: true },
     attribute: { type: String, default: 'label' },
-		modelValue: { type: [Object, String, Number], default: undefined },
-		placeholder: { type: String, default: 'Select...' },
-		searchable: { type: Boolean, default: false },
-		disabled: { type: Boolean, default: false },
-		clearable: { type: Boolean, default: false },
+    modelValue: { type: [Object, String, Number], default: undefined },
+    placeholder: { type: String, default: 'Select...' },
+    searchable: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
     noOptionsText: { type: String, default: 'No results found' },
-		dir: { type: String, default: 'down' },
-	},
+    dir: { type: String, default: 'down' },
+  },
+  emits: ['update:modelValue'],
   setup(props, { emit }) {
     const search = ref(undefined);
 
@@ -74,42 +73,28 @@ export default {
     const toggle = option => {
       search.value = '';
       const value = multiple.value
-        ? !!props.modelValue.find(item => attr(item) === attr(option))
+        ? props.modelValue.find(item => attr(item) === attr(option))
           ? props.modelValue.filter(item => attr(item) !== attr(option))
           : [...new Set([...props.modelValue, option])]
         : option;
       emit('update:modelValue', value);
     };
 
-    /*
-    const unselect = option => {
-      const values = props.modelValue.filter(item => item !== option);
-      emit('update:modelValue', values);
-    }
-    */
-
-    const clear = () => {
-      if (props.clearable) {
-        search.value = '';
-        emit('update:modelValue', multiple.value ? [] : undefined);
-      }
-    };
-
-    return { search, selected, filteredOptions, toggle, clear, multiple, attr };
+    return { search, selected, filteredOptions, toggle, multiple, attr };
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .dropdown {
-	display: inline-block;
+  display: inline-block;
   position: relative;
 
-	// Selected
-	.input {
+  // Selected
+  .input {
     display: flex;
     align-items: center;
-		overflow: visible;
+    overflow: visible;
     flex-wrap: wrap;
 
     input { flex: 1 1 50px; }
@@ -118,85 +103,85 @@ export default {
       opacity: 1;
       color: inherit;
     }
-	}
+  }
 
-	&.fluid {
-		display: block;
-		.input { width: 100%; }
-	}
+  &.fluid {
+    display: block;
+    .input { width: 100%; }
+  }
 
-	// Components
-	&__options {
-		box-sizing: border-box;
-		background: #fff;
-		border: 1px solid #a5acb6;
-		border-radius: 3px;
-		display: none;
-		left: 0;
-		margin: 2px;
-		max-height: 193px;
-		min-width: 100%;
-		overflow: auto;
-		padding: 5px;
-		position: absolute;
-		top: 100%;
-		z-index: 1;
+  // Components
+  &__options {
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #a5acb6;
+    border-radius: 3px;
+    display: none;
+    left: 0;
+    margin: 2px;
+    max-height: 193px;
+    min-width: 100%;
+    overflow: auto;
+    padding: 5px;
+    position: absolute;
+    top: 100%;
+    z-index: 1;
 
-		&--up {
-			top: auto;
-			bottom: 100%;
-		}
+    &--up {
+      top: auto;
+      bottom: 100%;
+    }
 
-		// Components
-		li {
-			align-items: center;
-			border-radius: 3px;
-			color: inherit;
-			cursor: pointer;
-			display: flex;
-			line-height: inherit;
-			padding: 5px 12px;
-			white-space: nowrap;
+    // Components
+    li {
+      align-items: center;
+      border-radius: 3px;
+      color: inherit;
+      cursor: pointer;
+      display: flex;
+      line-height: inherit;
+      padding: 5px 12px;
+      white-space: nowrap;
 
-			// Components
-			.icon { margin-left: 0; }
+      // Components
+      .icon { margin-left: 0; }
 
-			// State
-			&:hover {
-				background: #461ea3;
-				color: #fff;
-			}
-		}
+      // State
+      &:hover {
+        background: #461ea3;
+        color: #fff;
+      }
+    }
 
-		.no-options { padding: 0 12px; }
+    .no-options { padding: 0 12px; }
 
-		// State
-		&:hover,
-		:focus-within > & { display: block; }
-	}
+    // State
+    &:hover,
+    :focus-within > & { display: block; }
+  }
 
-	&__tags {
-		display: flex;
-		flex-wrap: wrap;
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
 
-		li {
-			flex: 0;
-			background: lighten(#461ea3, 50);
-			color: #461ea3;
-			display: inline-block;
-			padding: 5px 7px;
-			font-size: 0.9em;
-			margin: 2px;
-			line-height: 1em;
-			border-radius: 3px;
-			white-space: nowrap;
+    li {
+      flex: 0;
+      background: lighten(#461ea3, 50);
+      color: #461ea3;
+      display: inline-block;
+      padding: 5px 7px;
+      font-size: 0.9em;
+      margin: 2px;
+      line-height: 1em;
+      border-radius: 3px;
+      white-space: nowrap;
 
-			i {
-				font-weight: bold;
-				margin-left: 5px;
-				cursor: pointer;
-			}
-		}
-	}
+      i {
+        font-weight: bold;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+    }
+  }
 }
 </style>

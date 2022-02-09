@@ -1,20 +1,20 @@
-<template >
-	<section :class="['card', 'card--round', { 'loading': loading }]">
-		<h2><i class="icon mdi mdi-chart-box-outline" /> {{ t('visitors.stats.title') }}</h2>
-		<dropdown
-			v-model="selected"
-			:options="visitors"
+<template>
+  <section :class="['card', 'card--round', { 'loading': loading }]">
+    <h2><i class="icon mdi mdi-chart-box-outline" /> {{ t('visitors.stats.title') }}</h2>
+    <dropdown
+      v-model="selected"
+      :options="visitors"
       attribute="name"
-			:placeholder="t('visitors.stats.selectCountry')"
+      :placeholder="t('visitors.stats.selectCountry')"
       :no-options-text="t('visitors.stats.noOptions')"
-			searchable>
+      searchable>
       <template #pre>
-				<i v-if="selected" :class="`flag flag-${selected.code} margin-r-1`" />
-			</template>
+        <i v-if="selected" :class="`flag flag-${selected.code} margin-r-1`" />
+      </template>
       <template #option="{ option }">
-				<i :class="`flag flag-${option.code} margin-r-1`" />
-				{{ option.name }}
-			</template>
+        <i :class="`flag flag-${option.code} margin-r-1`" />
+        {{ option.name }}
+      </template>
     </dropdown>
     <div v-if="selected" class="stats">
       <article>
@@ -34,8 +34,8 @@
           :series="spendingTreeSeries"
           :options="spendingTreeOptions" />
       </article>
-		</div>
-	</section>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -56,38 +56,39 @@ export default {
     const selected = ref(undefined);
 
     const stats = computed(() => {
-			const { visitors, visits, overnights, spending } = selected.value;
-			return {
-				trippers: {
-					visitors: { value: visitors.trippers, unit: 'people' },
-					visits: { value: visits.trippers, unit: 'visits' },
-					loyalty: { value: visits.trippers / visitors.trippers || 0, precision: 2, unit: 'visitsPerson' },
-				},
-				tourists: {
-					visitors: { value: visitors.tourists, unit: 'people' },
-					visits: { value: visits.tourists, unit: 'visits' },
-					loyalty: { value: visits.tourists / visitors.tourists || 0, precision: 2,  unit: 'visitsPerson' },
-					overnights: { value: overnights, unit: 'nights' },
-					overnightsMean: { value: overnights / visits.tourists, precision: 2, unit: 'nightsVisit' },
-				},
-				spending: {
-					total: { value: spending.mean * visitors.uniques, precision: 2, unit: 'euro' },
-					mean: { value: spending.mean, precision: 2, unit: 'euro' },
-				},
-			};
-		});
+      const { visitors, visits, overnights, spending } = selected.value;
+      return {
+        trippers: {
+          visitors: { value: visitors.trippers, unit: 'people' },
+          visits: { value: visits.trippers, unit: 'visits' },
+          loyalty: { value: visits.trippers / visitors.trippers || 0, precision: 2, unit: 'visitsPerson' },
+        },
+        tourists: {
+          visitors: { value: visitors.tourists, unit: 'people' },
+          visits: { value: visits.tourists, unit: 'visits' },
+          loyalty: { value: visits.tourists / visitors.tourists || 0, precision: 2, unit: 'visitsPerson' },
+          overnights: { value: overnights, unit: 'nights' },
+          overnightsMean: { value: overnights / visits.tourists, precision: 2, unit: 'nightsVisit' },
+        },
+        spending: {
+          total: { value: spending.mean * visitors.uniques, precision: 2, unit: 'euro' },
+          mean: { value: spending.mean, precision: 2, unit: 'euro' },
+        },
+      };
+    });
 
     const spendingTreeSeries = computed(() => {
       const total = selected.value.spending.mean * selected.value.visitors.uniques;
       const data = Object.entries(selected.value.spending.merchant)
-        .map(([name, value]) => ({ x:  t(`visitors.stats.merchant.${name}`), y: value * total / 100 }));
+        .map(([name, value]) => ({
+          x: t(`visitors.stats.merchant.${name}`),
+          y: (value * total) / 100,
+        }));
       return [{ data }];
     });
 
     const spendingTreeOptions = {
-      chart: {
-        toolbar: { show: false },
-      },
+      chart: { toolbar: { show: false } },
       yaxis: {
         labels: {
           formatter: value => `${parseFloat(value.toFixed(2)).toLocaleString()} €`,

@@ -1,11 +1,11 @@
-<template >
+<template>
   <ul class="pagination">
-		<li v-for="i in pages" :key="i">
-			<span
+    <li v-for="i in pages" :key="i">
+      <span
         :class="{ 'selected': i === modelValue + 1 }"
         @click="selectPage(i)" />
-		</li>
-	</ul>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -32,28 +32,28 @@ export default {
 
 <style lang="scss" scoped>
 .pagination {
-	margin-top: 10px;
-	text-align: center;
+  margin-top: 10px;
+  text-align: center;
 
-	li {
-		display: inline-block;
-		margin: 0 5px;
-		vertical-align: middle;
+  li {
+    display: inline-block;
+    margin: 0 5px;
+    vertical-align: middle;
 
-		span {
-			display: block;
-			height: 7px;
-			width: 7px;
-			border-radius: 50%;
-			background: rgba(#461ea3, 0.5);
-			cursor: pointer;
-			transition: all 0.2s ease-in-out;
+    span {
+      display: block;
+      height: 7px;
+      width: 7px;
+      border-radius: 50%;
+      background: rgba(#461ea3, 0.5);
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
 
-			&.selected {
-				background: #461ea3;
-				transform: scale(1.5);
-			}
-		}
-	}
+      &.selected {
+        background: #461ea3;
+        transform: scale(1.5);
+      }
+    }
+  }
 }
 </style>

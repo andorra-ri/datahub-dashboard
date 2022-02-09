@@ -4,8 +4,8 @@ import visitors from './view.visitors';
 import spending from './view.spending';
 
 export default {
-	countries,
-	ui,
-	visitors,
-	spending,
+  countries,
+  ui,
+  visitors,
+  spending,
 };

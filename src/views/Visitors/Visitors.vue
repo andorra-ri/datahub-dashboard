@@ -33,9 +33,7 @@
 </template>
 
 <script>
-import { reactive, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { loadVisitors, loadHistoric } from '/@/repositories/visitors';
 import { dateFormat } from '/@/utils/date';
 import VisitorsSummary from './VisitorsSummary.vue';
 import VisitorsHistoric from './VisitorsHistoric.vue';
@@ -44,7 +42,7 @@ import VisitorsStats from './VisitorsStats.vue';
 import VisitorsFilters from './VisitorsFilters.vue';
 
 export default {
-  name: 'visitors',
+  name: 'Visitors',
   components: {
     VisitorsSummary,
     VisitorsHistoric,

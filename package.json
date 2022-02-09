@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "lint": "eslint src",
     "build": "vite build",
     "serve": "vite preview"
   },

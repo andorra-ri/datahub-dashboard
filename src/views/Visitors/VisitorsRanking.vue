@@ -1,36 +1,36 @@
-<template >
-	<section :class="['card', 'card--round', { 'loading': loading }]">
-		<h2><i class="icon mdi mdi-trophy" /> {{ t('visitors.ranking.title') }}</h2>
+<template>
+  <section :class="['card', 'card--round', { 'loading': loading }]">
+    <h2><i class="icon mdi mdi-trophy" /> {{ t('visitors.ranking.title') }}</h2>
     <fieldset class="picker content--right">
-			<label>
-				<input type="radio" v-model="ranker" value="visitors.uniques" />
-				<span>{{ t('visitors.uniqueVisitors') }}</span>
-			</label>
-			<label>
-				<input type="radio" v-model="ranker" value="visitors.trippers" />
-				<span>{{ t('visitors.trippers') }}</span>
-			</label>
-			<label>
-				<input type="radio" v-model="ranker" value="visitors.tourists" />
-				<span>{{ t('visitors.tourists') }}</span>
-			</label>
-		</fieldset>
+      <label>
+        <input v-model="ranker" type="radio" value="visitors.uniques">
+        <span>{{ t('visitors.uniqueVisitors') }}</span>
+      </label>
+      <label>
+        <input v-model="ranker" type="radio" value="visitors.trippers">
+        <span>{{ t('visitors.trippers') }}</span>
+      </label>
+      <label>
+        <input v-model="ranker" type="radio" value="visitors.tourists">
+        <span>{{ t('visitors.tourists') }}</span>
+      </label>
+    </fieldset>
     <ranking
-			:list="visitors"
-			:ranker="ranker"
-			:pagination="20"
-			show-values
-			:unit-suffix="t('units.people')">
-			<template v-slot="{ item }">
-				<i :class="`flag flag-${item.code} margin-r-1`" />
-				{{ item.name }}
-			</template>
-		</ranking>
-	</section>
+      :list="visitors"
+      :ranker="ranker"
+      :pagination="20"
+      show-values
+      :unit-suffix="t('units.people')">
+      <template #default="{ item }">
+        <i :class="`flag flag-${item.code} margin-r-1`" />
+        {{ item.name }}
+      </template>
+    </ranking>
+  </section>
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { visitors } from '/@/repositories/visitors';
 import Ranking from '/@/components/Ranking.vue';

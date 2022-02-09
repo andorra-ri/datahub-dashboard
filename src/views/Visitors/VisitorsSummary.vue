@@ -1,12 +1,12 @@
 <template>
   <section :class="['card', 'card--round', { 'loading': loading }]">
-		<div class="row">
-			<div v-for="(value, name) in summary" :key="name" class="column summary__item">
-				<h4>{{ t(`visitors.${name}`) }}</h4>
-				<strong>{{ numberFormat(value) }}</strong>
-			</div>
-		</div>
-	</section>
+    <div class="row">
+      <div v-for="(value, name) in summary" :key="name" class="column summary__item">
+        <h4>{{ t(`visitors.${name}`) }}</h4>
+        <strong>{{ numberFormat(value) }}</strong>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -40,23 +40,23 @@ export default {
 
 <style lang="scss" scoped>
 .summary__item {
-	h4 {
-		text-transform: uppercase;
-		font-size: 0.8em;
-		line-height: 1.5em;
-		color: #999;
-	}
+  h4 {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    color: #999;
+  }
 
-	strong {
-		font-size: 1.8em;
-		line-height: 1em;
-	}
+  strong {
+    font-size: 1.8em;
+    line-height: 1em;
+  }
 
-	em {
-		font-size: 0.8em;
-		margin-left: 3px;
-		display: block;
-		white-space: nowrap;
-	}
+  em {
+    font-size: 0.8em;
+    margin-left: 3px;
+    display: block;
+    white-space: nowrap;
+  }
 }
 </style>

@@ -3,61 +3,61 @@ $spacing-base-unit: 5px;
 
 // SPACING
 @mixin spacing($type, $unit) {
-	.#{$type}-#{$unit} { margin: $spacing-base-unit * $unit; }
-	.#{$type}-t-#{$unit} { #{$type}-top: $spacing-base-unit * $unit; }
-	.#{$type}-b-#{$unit} { #{$type}-bottom: $spacing-base-unit * $unit; }
-	.#{$type}-l-#{$unit} { #{$type}-left: $spacing-base-unit * $unit; }
-	.#{$type}-r-#{$unit} { #{$type}-right: $spacing-base-unit * $unit; }
+  .#{$type}-#{$unit} { margin: $spacing-base-unit * $unit; }
+  .#{$type}-t-#{$unit} { #{$type}-top: $spacing-base-unit * $unit; }
+  .#{$type}-b-#{$unit} { #{$type}-bottom: $spacing-base-unit * $unit; }
+  .#{$type}-l-#{$unit} { #{$type}-left: $spacing-base-unit * $unit; }
+  .#{$type}-r-#{$unit} { #{$type}-right: $spacing-base-unit * $unit; }
 
-	.#{$type}-x-#{$unit} {
-		#{$type}-left: $spacing-base-unit * $unit;
-		#{$type}-right: $spacing-base-unit * $unit;
-	}
+  .#{$type}-x-#{$unit} {
+    #{$type}-left: $spacing-base-unit * $unit;
+    #{$type}-right: $spacing-base-unit * $unit;
+  }
 
-	.#{$type}-y-#{$unit} {
-		#{$type}-top: $spacing-base-unit * $unit;
-		#{$type}-bottom: $spacing-base-unit * $unit;
-	}
+  .#{$type}-y-#{$unit} {
+    #{$type}-top: $spacing-base-unit * $unit;
+    #{$type}-bottom: $spacing-base-unit * $unit;
+  }
 }
 
 @for $i from 1 through 5 {
-	@include spacing('margin', $i);
-	@include spacing('padding', $i);
+  @include spacing('margin', $i);
+  @include spacing('padding', $i);
 }
 
 // ALIGNMENT
 .content {
-	&--left { text-align: left; }
-	&--center { text-align: center; }
-	&--right { text-align: right; }
+  &--left { text-align: left; }
+  &--center { text-align: center; }
+  &--right { text-align: right; }
 }
 
 .align {
-	&--center {
-		margin-right: auto;
-		margin-left: auto;
-	}
-	&--left { margin-right: auto; }
-	&--right { margin-left: auto; }
+  &--center {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  &--left { margin-right: auto; }
+  &--right { margin-left: auto; }
 }
 
 .valign {
-	&--top {
-		vertical-align: top;
-		margin-top: auto;
-		align-self: flex-end;
-	}
+  &--top {
+    vertical-align: top;
+    margin-top: auto;
+    align-self: flex-end;
+  }
 
-	&--center {
-		vertical-align: middle;
-		margin-top: auto;
-		margin-bottom: auto;
-		align-self: center;
-	}
+  &--center {
+    vertical-align: middle;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-self: center;
+  }
 
-	&--bottom {
-		vertical-align: bottom;
-		margin-bottom: auto;
-		align-self: flex-start;
-	}
+  &--bottom {
+    vertical-align: bottom;
+    margin-bottom: auto;
+    align-self: flex-start;
+  }
 }
