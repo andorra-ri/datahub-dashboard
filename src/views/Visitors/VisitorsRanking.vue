@@ -32,6 +32,7 @@
 <script>
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { isWaitingFor } from '/@/services/wait';
 import { countries } from '/@/repositories/visitors';
 import Ranking from '/@/components/Ranking.vue';
 
@@ -39,9 +40,9 @@ export default {
   name: 'VisitorsRanking',
   components: { Ranking },
   setup() {
-    const loading = ref(false);
     const { t } = useI18n();
     const ranker = ref('visitors.uniques');
+    const loading = isWaitingFor('load-visitors');
 
     return { t, loading, countries, ranker };
   },

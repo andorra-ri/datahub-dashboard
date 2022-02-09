@@ -10,9 +10,10 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import ApexChart from 'vue3-apexcharts';
+import { isWaitingFor } from '/@/services/wait';
 import { historic } from '/@/repositories/visitors';
 import apex from '/@/utils/charts';
 import mergeDeep from '/@/utils/merge-deep';
@@ -22,7 +23,7 @@ export default {
   components: { ApexChart },
   setup() {
     const { t } = useI18n();
-    const loading = ref(false);
+    const loading = isWaitingFor('load-visitors-historic');
 
     const options = mergeDeep(apex.column, {
       chart: { stacked: true },

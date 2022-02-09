@@ -15,8 +15,9 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { isWaitingFor } from '/@/services/wait';
 import millify from 'millify';
 import { countries } from '/@/repositories/visitors';
 
@@ -24,8 +25,9 @@ export default {
   name: 'VisitorsSummary',
   setup() {
     const { t } = useI18n();
+    const loading = isWaitingFor('load-visitors');
+
     const numberFormat = number => millify(number);
-    const loading = ref(false);
 
     // Filter by countries
     const summary = computed(() => countries.value.reduce((acc, country) => {

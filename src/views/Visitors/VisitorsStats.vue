@@ -51,6 +51,7 @@ import { ref, computed, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import ApexChart from 'vue3-apexcharts';
 import { VueCollapsiblePanelGroup, VueCollapsiblePanel } from '@dafcoe/vue-collapsible-panel';
+import { isWaitingFor } from '/@/services/wait';
 import { countries } from '/@/repositories/visitors';
 import StatsList from '/@/components/StatsList.vue';
 import Dropdown from '/@/components/Dropdown.vue';
@@ -60,9 +61,8 @@ export default {
   components: { StatsList, Dropdown, ApexChart, VueCollapsiblePanelGroup, VueCollapsiblePanel },
   setup() {
     const { t } = useI18n();
-    const loading = ref(false);
-
     const country = ref(undefined);
+    const loading = isWaitingFor('load-visitors');
 
     const stats = computed(() => {
       const { visitors, visits, overnights } = country.value;
