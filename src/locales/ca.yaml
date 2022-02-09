@@ -6,9 +6,9 @@ visitors:
   visitors: Visitants
   tourists: Turistes
   trippers: Excursionistes
-  uniqueVisitors: Visitants únics
-  touristVisits: Visites turistes
-  tripperVisits: Visites excursionistes
+  unique: Únics
+  visits: Visites
+  overnights: Pernoctacions
 
   spending: Despesa econòmica
   spending_disclaimer: Les dades mostrades corresponen a perfils genèrics de pagaments realitzats únicament amb VISA.

@@ -4,7 +4,7 @@
     <fieldset class="picker content--right">
       <label>
         <input v-model="ranker" type="radio" value="visitors.uniques">
-        <span>{{ t('visitors.uniqueVisitors') }}</span>
+        <span>{{ t('visitors.unique') }}</span>
       </label>
       <label>
         <input v-model="ranker" type="radio" value="visitors.trippers">
