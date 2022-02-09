@@ -111,7 +111,7 @@ export default {
 <style lang="scss" scoped>
 .calendar {
   display: inline-block;
-  margin: 5px;
+  margin: 5px auto;
 
   &.fluid { display: block; }
 
@@ -151,8 +151,8 @@ export default {
 
   .day {
     cursor: pointer;
-    line-height: 3em;
-    padding: 0 10px;
+    line-height: 2.5em;
+    padding: 0 9px;
     text-align: center;
 
     &--today {
