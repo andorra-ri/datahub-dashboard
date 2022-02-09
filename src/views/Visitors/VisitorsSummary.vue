@@ -13,7 +13,7 @@
 import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import millify from 'millify';
-import { visitors } from '/@/repositories/visitors';
+import { countries } from '/@/repositories/visitors';
 
 export default {
   name: 'VisitorsSummary',
@@ -23,7 +23,7 @@ export default {
     const loading = ref(false);
 
     // Filter by countries
-    const summary = computed(() => visitors.value.reduce((acc, country) => {
+    const summary = computed(() => countries.value.reduce((acc, country) => {
       acc.uniqueVisitors = (acc.uniqueVisitors || 0) + country.visitors.uniques;
       acc.tourists = (acc.tourists || 0) + country.visitors.tourists;
       acc.touristVisits = (acc.touristVisits || 0) + country.visits.tourists;

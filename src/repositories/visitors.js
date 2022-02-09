@@ -2,16 +2,16 @@ import { ref, computed, reactive, watch } from 'vue';
 import api from '/@/services/datahub';
 import i18n from '/@/i18n';
 
-const VISITORS = ref([]);
+const COUNTRIES = ref([]);
 const HISTORIC = ref({});
 export const filters = reactive({
   period: [new Date(), new Date()],
   countries: [],
 });
 
-export const visitors = computed(() => (filters.countries?.length
-  ? VISITORS.value.filter(({ code }) => filters.countries.includes(code))
-  : VISITORS.value
+export const countries = computed(() => (filters.countries?.length
+  ? COUNTRIES.value.filter(({ code }) => filters.countries.includes(code))
+  : COUNTRIES.value
 ));
 
 export const historic = computed(() => {
@@ -30,7 +30,7 @@ export const historic = computed(() => {
 export const loadVisitors = async ({ since, until }) => {
   const dates = `since=${since.toISOString()}&until=${until.toISOString()}`;
   const { data } = await api.get(`/visitors/summary/?${dates}`);
-  VISITORS.value = data.map(country => {
+  COUNTRIES.value = data.map(country => {
     const name = i18n.global.t(`countries.${country.code}`);
     return { name, ...country };
   });

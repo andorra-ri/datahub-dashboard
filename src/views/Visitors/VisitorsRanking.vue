@@ -16,7 +16,7 @@
       </label>
     </fieldset>
     <ranking
-      :list="visitors"
+      :list="countries"
       :ranker="ranker"
       :pagination="20"
       show-values
@@ -32,7 +32,7 @@
 <script>
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { visitors } from '/@/repositories/visitors';
+import { countries } from '/@/repositories/visitors';
 import Ranking from '/@/components/Ranking.vue';
 
 export default {
@@ -43,7 +43,7 @@ export default {
     const { t } = useI18n();
     const ranker = ref('visitors.uniques');
 
-    return { t, loading, visitors, ranker };
+    return { t, loading, countries, ranker };
   },
 };
 </script>
