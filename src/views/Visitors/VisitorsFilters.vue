@@ -10,8 +10,8 @@
         :options="COUNTRIES"
         attribute="name"
         searchable
-        :placeholder="t('visitors.stats.selectCountry')"
-        :no-options-text="t('visitors.stats.noOptions')">
+        :placeholder="t('filters.selectCountry')"
+        :no-options-text="t('filters.noOptions')">
         <template #tags="{ tag }">{{ tag.name }}</template>
         <template #option="{ option }">
           <i :class="`flag flag-${option.code} margin-r-1`" />

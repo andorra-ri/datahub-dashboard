@@ -53,6 +53,9 @@ filters:
   origin: Origen
   filter: Aplicar filtres
 
+  selectCountry: Selecciona un país
+  noOptions: No hi ha cap opció disponible
+
 units:
   people: persones
   visits: visites
