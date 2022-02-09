@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { visitors } from '/@/repositories/visitors';
 import StatsList from '/@/components/StatsList.vue';
@@ -94,6 +94,10 @@ export default {
         },
       },
     };
+
+    watch(visitors, () => {
+      selected.value = visitors.value.find(({ code }) => code === selected.value?.code);
+    });
 
     return { t, visitors, selected, stats, loading, spendingTreeSeries, spendingTreeOptions };
   },

@@ -3,7 +3,9 @@
     <main class="content">
       <header class="header">
         <h1><em>{{ t('visitors.section') }}</em>{{ t('visitors.title') }}</h1>
+        <!--
         <p>{{ dateFormat(dates.since, 'FULL_SHORT', locale) }} - {{ dateFormat(dates.until, 'FULL_SHORT', locale) }}</p>
+        -->
       </header>
       <div class="grid">
         <div class="row">
@@ -52,19 +54,8 @@ export default {
   },
   setup() {
     const { t, locale } = useI18n();
-    const dates = reactive({ since: new Date(), until: new Date() });
-    const dates = reactive({
-      since: new Date(2021, 5, 7),
-      until: new Date(2021, 5, 15),
-    })
-    const filters = reactive({});
 
-    watch(dates, async () => {
-      await loadVisitors(dates);
-      await loadHistoric(dates);
-    }, { immediate: true });
-
-    return { t, locale, filters, dates, dateFormat };
+    return { t, locale, dateFormat };
   },
 };
 </script>

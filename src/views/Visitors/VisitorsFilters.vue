@@ -10,7 +10,6 @@
         :options="COUNTRIES"
         attribute="name"
         searchable
-        clearable
         :placeholder="t('visitors.stats.selectCountry')"
         :no-options-text="t('visitors.stats.noOptions')">
         <template #tags="{ tag }">{{ tag.name }}</template>
@@ -29,6 +28,7 @@
 <script>
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { filters } from '/@/repositories/visitors';
 import Dropdown from '/@/components/Dropdown.vue';
 import Calendar from '/@/components/Calendar.vue';
 import config from '/@/config.yaml';
@@ -36,19 +36,16 @@ import config from '/@/config.yaml';
 export default {
   name: 'VisitorsFilters',
   components: { Dropdown, Calendar },
-  props: {
-    modelValue: { type: Object, required: true },
-  },
   setup() {
     const { t, locale } = useI18n();
-    const period = ref([new Date(), new Date()]);
-    const countries = ref([]);
+    const period = ref([...filters.period]);
+    const countries = ref([...filters.countries]);
 
     const COUNTRIES = config.countries.map(code => ({ code, name: t(`countries.${code}`) }));
 
     const apply = () => {
-      const [since, until] = [...period.value].sort((a, b) => a - b);
-
+      filters.period = period.value;
+      filters.countries = countries.value.map(country => country.code);;
     };
 
     return { t, locale, COUNTRIES, period, countries, apply };

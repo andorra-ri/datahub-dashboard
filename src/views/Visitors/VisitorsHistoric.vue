@@ -17,10 +17,6 @@ import { historic } from '/@/repositories/visitors';
 import apex from '/@/utils/charts';
 import mergeDeep from '/@/utils/merge-deep';
 
-const includes = (obj, key) => !obj.length || obj.includes(key);
-const sumAllowed = allowed => (sum, [key, value]) => (includes(allowed, key) ? sum + value : sum);
-const sumObject = (object, allowed) => Object.entries(object).reduce(sumAllowed(allowed), 0);
-
 export default {
   name: 'VisitorsHistoric',
   components: { ApexChart },
@@ -36,13 +32,12 @@ export default {
 		});
 
     const columns = computed(() => {
-      const allowCountries = [];
       const dates = Object.values(historic.value?.dates || {});
       const series = dates.reduce((acc, { date, groups }) => {
-				groups.forEach(({ group, countries }) => {
+				groups.forEach(({ group, sum }) => {
 					const name = t(`visitors.${group}`);
 					acc[group] = acc[group] || { name, data: [] };
-					acc[group].data.push({ x: date, y: sumObject(countries, allowCountries) });
+          acc[group].data.push({ x: date, y: sum })
 				});
 				return acc;
 			}, {});
