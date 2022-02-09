@@ -24,10 +24,11 @@ import { countries } from '/@/repositories/visitors';
 export default {
   name: 'VisitorsSummary',
   setup() {
-    const { t } = useI18n();
+    const { t, locale } = useI18n();
     const loading = isWaitingFor('load-visitors');
 
-    const numberFormat = number => millify(number);
+    const decimalSeparator = (1.1).toLocaleString(locale.value).substring(1, 2);
+    const numberFormat = number => millify(number, { decimalSeparator });
 
     // Filter by countries
     const summary = computed(() => countries.value.reduce((acc, country) => {
