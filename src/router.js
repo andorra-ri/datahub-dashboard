@@ -1,17 +1,18 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import Home from './views/Home.vue';
 
-Vue.use(Router);
-
-export default new Router({
-	mode: 'history',
-	base: process.env.BASE_URL,
-	routes: [
-		{
-			path: '/',
-			name: 'home',
-			component: Home,
-		},
-	],
+export default createRouter({
+  history: createWebHistory(),
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home,
+    },
+    {
+      path: '/visitants',
+      name: 'visitors',
+      component: () => import('./views/visitors/Visitors.vue'),
+    },
+  ],
 });

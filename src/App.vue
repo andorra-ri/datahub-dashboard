@@ -1,7 +1,15 @@
 <template>
-	<div id="app">
-	</div>
+  <nav-bar />
+  <router-view />
+  <toast-center />
 </template>
 
-<style lang="scss">
-</style>
+<script>
+import NavBar from '/@/components/NavBar.vue';
+import ToastCenter from '/@/components/ToastCenter.vue';
+
+export default {
+  name: 'App',
+  components: { NavBar, ToastCenter },
+};
+</script>

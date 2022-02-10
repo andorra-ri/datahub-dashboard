@@ -1,12 +1,13 @@
-import Vue from 'vue';
-import 'reset-css'; // eslint-disable-line import/extensions
-import '@mdi/font/css/materialdesignicons.css';
-import App from './App.vue';
+import { createApp } from 'vue';
 import router from './router';
+import i18n from './i18n';
+import App from './App.vue';
 
-Vue.config.productionTip = false;
+import 'reset-css';
+import '@mdi/font/css/materialdesignicons.css';
+import './styles/main.scss';
 
-new Vue({
-	router,
-	render: h => h(App),
-}).$mount('#app');
+const app = createApp(App);
+app.use(router);
+app.use(i18n);
+app.mount('#app');
