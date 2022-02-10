@@ -18,8 +18,8 @@ button,
 .btn {
   align-items: center;
   appearance: none;
-  background: #461ea3;
-  border: 1px solid #461ea3;
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
   border-radius: 3px;
   color: #fff;
   cursor: pointer;
@@ -48,22 +48,17 @@ button,
 
   &--outline {
     background: transparent;
-    color: #461ea3;
+    color: var(--color-primary);
   }
 
   &:hover {
-    background-color: darken(#461ea3, 10);
+    background-color: var(--color-primary);
     color: #fff;
   }
 
-  &--danger {
-    border-color: #e0453b;
-    background: #e0453b;
-  }
-
   &:disabled {
-    background-color: lighten(#461ea3, 50);
-    border-color: lighten(#461ea3, 50);
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
     cursor: not-allowed;
   }
 }

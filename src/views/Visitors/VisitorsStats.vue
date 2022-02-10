@@ -35,10 +35,7 @@
         <template #content>
           <article>
             <p class="note">{{ t('visitors.spending_disclaimer') }}</p>
-            <apex-chart
-              type="treemap"
-              :series="spendingTreeSeries"
-              :options="spendingTreeOptions" />
+            <apex-chart type="treemap" :series="series" :options="options" />
           </article>
         </template>
       </vue-collapsible-panel>
@@ -55,6 +52,7 @@ import { isWaitingFor } from '/@/services/wait';
 import { countries } from '/@/repositories/visitors';
 import StatsList from '/@/components/StatsList.vue';
 import Dropdown from '/@/components/Dropdown.vue';
+import apex from '/@/utils/charts';
 
 export default {
   name: 'VisitorsStats',
@@ -82,7 +80,7 @@ export default {
       };
     });
 
-    const spendingTreeSeries = computed(() => {
+    const series = computed(() => {
       const data = Object.entries(country.value.spending.merchant)
         .map(([name, value]) => ({
           x: t(`visitors.stats.merchant.${name}`),
@@ -91,16 +89,13 @@ export default {
       return [{ data }];
     });
 
-    const spendingTreeOptions = {
-      chart: { toolbar: { show: false } },
-      yaxis: { labels: { formatter: val => `${parseFloat(val.toFixed(2)).toLocaleString()}%` } },
-    };
+    const options = apex.treemap;
 
     watch(countries, () => {
       country.value = countries.value.find(({ code }) => code === country.value?.code);
     });
 
-    return { t, countries, country, stats, loading, spendingTreeSeries, spendingTreeOptions };
+    return { t, countries, country, stats, loading, series, options };
   },
 };
 </script>

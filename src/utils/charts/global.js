@@ -1,6 +1,6 @@
 /* eslint-disable object-curly-newline */
 export default {
-  colors: ['#461ea3', '#a28ed1', '#d2d2d2'],
+  colors: ['var(--color-primary)', 'var(--color-secondary)', 'var(--color-light)'],
   dataLabels: {
     enabled: false,
     enabledOnSeries: true,
@@ -8,7 +8,7 @@ export default {
     style: {
       fontSize: '10px',
       fontFamily: 'Nunito Sans, sans-serif',
-      colors: ['#a28ed1', '#461ea3', '#888'],
+      colors: ['var(--color-secondary)', 'var(--color-primary)', '#888'],
     },
   },
   chart: {

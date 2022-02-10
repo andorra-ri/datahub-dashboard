@@ -9,7 +9,7 @@ $spinner-speed: 1s;
     position: absolute;
     top: 50%;
     left: 50%;
-    color: #461ea3;
+    color: var(--color-primary);
     content: '';
     height: 30px;
     width: 30px;

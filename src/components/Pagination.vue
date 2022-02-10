@@ -45,13 +45,15 @@ export default {
       height: 7px;
       width: 7px;
       border-radius: 50%;
-      background: rgba(#461ea3, 0.5);
+      background: var(--color-primary);
+      opacity: 0.5;
       cursor: pointer;
       transition: all 0.2s ease-in-out;
 
       &.selected {
-        background: #461ea3;
+        background: var(--color-primary);
         transform: scale(1.5);
+        opacity: 1;
       }
     }
   }

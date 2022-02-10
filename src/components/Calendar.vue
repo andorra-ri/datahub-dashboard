@@ -156,17 +156,17 @@ export default {
     text-align: center;
 
     &--today {
-      color: #461ea3;
+      color: var(--color-primary);
       font-weight: bold;
     }
 
     &--between {
-      background: lighten(#461ea3, 20%);
+      background: var(--color-secondary);
       color: #fff;
     }
 
     &--selected {
-      background: #461ea3 !important;
+      background: var(--color-primary) !important;
       color: #fff;
       cursor: default;
     }

@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <router-link to="/" class="brand">
-      <img src="../assets/img/logo-actuatech.png">
+      <img src="/logo-ari.png">
     </router-link>
     <div class="navbar__center">
       <router-link to="/visitants" class="navbar__anchor">
@@ -36,7 +36,7 @@ export default { name: 'NavBar' };
     margin: 10px 0;
 
     &:hover,
-    &.router-link-exact-active { color: #461ea3; }
+    &.router-link-exact-active { color: var(--color-primary); }
   }
 
   .brand {

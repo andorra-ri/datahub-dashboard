@@ -13,6 +13,7 @@
         type="text"
         :placeholder="attr(selected)"
         :readonly="!searchable">
+      <i class="icon mdi mdi-chevron-down" />
     </label>
     <ul v-if="!disabled" :class="`dropdown__options dropdown__options--${dir}`">
       <li
@@ -148,7 +149,7 @@ export default {
 
       // State
       &:hover {
-        background: #461ea3;
+        background: var(--color-secondary);
         color: #fff;
       }
     }
@@ -166,8 +167,8 @@ export default {
 
     li {
       flex: 0;
-      background: lighten(#461ea3, 50);
-      color: #461ea3;
+      background: var(--color-secondary);
+      color: #fff;
       display: inline-block;
       padding: 5px 7px;
       font-size: 0.9em;

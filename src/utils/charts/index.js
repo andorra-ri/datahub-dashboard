@@ -7,7 +7,7 @@ import Column from './column';
 import Donut from './donut';
 import Heatmap from './heatmap';
 import Area from './area';
-import SingleColumn from './single-column';
+import TreeMap from './treemap';
 
 export default {
   line: mergeDeep(Global, Line),
@@ -15,5 +15,5 @@ export default {
   donut: mergeDeep(Global, Donut),
   heatmap: mergeDeep(Global, Heatmap),
   area: mergeDeep(Global, Area),
-  singleColumn: mergeDeep(Global, SingleColumn),
+  treemap: TreeMap,
 };

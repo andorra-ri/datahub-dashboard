@@ -1,6 +1,6 @@
 /* eslint-disable object-curly-newline */
 export default {
-  colors: ['#461ea3'],
+  colors: ['var(--color-primary)'],
   plotOptions: {
     heatmap: {
       radius: 3,
