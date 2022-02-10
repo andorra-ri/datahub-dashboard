@@ -1,43 +1,43 @@
 #app {
-	background: #eaedf1;
-	display: flex;
-	font: $base__font-size $base__font-family, sans-serif;
+  background: #eaedf1;
+  display: flex;
+  font: $base__font-size $base__font-family, sans-serif;
 }
 
 .screen {
-	display: flex;
-	flex: auto;
-	height: 100vh;
+  display: flex;
+  flex: auto;
+  height: 100vh;
 
-	.content {
-		box-sizing: border-box;
-		flex: auto;
-		height: 100%;
-		overflow: auto;
-		padding: 20px 30px;
+  .content {
+    box-sizing: border-box;
+    flex: auto;
+    height: 100%;
+    overflow: auto;
+    padding: 20px 30px;
 
-		.header {
-			margin: 20px;
+    .header {
+      margin: 20px;
 
-			.toolbox { float: right; }
-		}
-	}
+      .toolbox { float: right; }
+    }
+  }
 
-	.sidebar {
-		box-sizing: border-box;
-		flex: 0 0 325px;
-		height: 100%;
-		overflow: auto;
-		padding: 30px;
-	}
+  .sidebar {
+    box-sizing: border-box;
+    flex: 0 1 auto;
+    height: 100%;
+    overflow: auto;
+    padding: 30px;
+  }
 }
 
 .card {
-	background: #fff;
-	box-sizing: border-box;
-	padding: 25px;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 25px;
 
-	&--round { border-radius: 5px; }
+  &--round { border-radius: 5px; }
 
-	.column & { height: 100%; }
+  .column & { height: 100%; }
 }

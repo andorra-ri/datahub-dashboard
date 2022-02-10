@@ -1,111 +1,59 @@
-<template lang="html">
-	<div class="ranking">
-		<table class="ranking__list">
-			<tr v-for="item in rankedList" :key="item._rank">
-				<td class="ranking__rank">{{ item._rank }}</td>
-				<td class="ranking__name">
-					<slot :item="item">{{ item.name }}</slot>
-				</td>
-				<td v-if="showValues" class="ranking__value">
-					{{ unitPrefix }}{{ rankAttribute(item) }}{{ unitSuffix }}
-				</td>
-				<td v-if="selectable" class="ranking__more">
-					<i class="selector mdi mdi-chevron-right" @click="select(item)" />
-				</td>
-			</tr>
-		</table>
-		<pagination v-if="pagination" :pages="numPages" v-model="page" />
-	</div>
+<template>
+  <div class="ranking">
+    <ul class="ranking-list">
+      <li v-for="item in rank" :key="item._rank">
+        <span class="rank">{{ item._rank }}</span>
+        <span class="name"><slot :item="item" /></span>
+        <template v-if="showValues">
+          <span class="prefix">{{ unitPrefix }}</span>
+          <span class="value">{{ parseFloat(item._value.toFixed(0)).toLocaleString() }}</span>
+          <span class="suffix">{{ unitSuffix }}</span>
+        </template>
+      </li>
+    </ul>
+    <pagination v-if="pagination" v-model="page" :pages="pages" />
+  </div>
 </template>
 
 <script>
-import Pagination from '@/components/Pagination.vue';
+import { ref, computed } from 'vue';
+import Pagination from './Pagination.vue';
 
-const resolve = (path, obj = this, separator = '.') => {
-	const properties = Array.isArray(path) ? path : path.split(separator);
-	return properties.reduce((prev, curr) => prev && prev[curr], obj);
-};
+const objpath = (obj, path) => path.split('.').reduce((acc, prop) => acc[prop], obj);
 
 export default {
-	name: 'ranking',
-	components: { Pagination },
-	props: {
-		list: { type: Array, required: true },
-		ranker: { type: String, required: true },
-		pagination: { type: Number, default: 0 },
-		showValues: { type: Boolean, default: true },
-		selectable: { type: Boolean, default: false },
-		unitPrefix: { type: String, default: '' },
-		unitSuffix: { type: String, default: '' },
-	},
-	data() {
-		return { page: 0 };
-	},
-	computed: {
-		rankedList() {
-			const offset = this.page * this.pagination;
-			return [...this.list]
-				.sort((a, b) => {
-					const aAttribute = this.rankAttribute(a);
-					const bAttribute = this.rankAttribute(b);
-					const numeric = typeof aAttribute === 'number' || typeof bAttribute === 'number';
-					return numeric
-						? bAttribute - aAttribute
-						: aAttribute.localeCompare(bAttribute);
-				})
-				.map((item, i) => ({ ...item, _rank: i + 1 }))
-				.slice(offset, this.pagination ? offset + this.pagination : this.list.length);
-		},
-		max() {
-			return this.list.reduce((max, item) => {
-				const attribute = this.rankAttribute(item);
-				return attribute > max ? attribute : max;
-			}, 0);
-		},
-		numPages() { return Math.ceil(this.list.length / this.pagination); },
-	},
-	methods: {
-		rankAttribute(obj) { return resolve(this.ranker, obj); },
-		select(item) { this.$emit('select', item); },
-	},
+  name: 'Ranking',
+  components: { Pagination },
+  props: {
+    list: { type: Array, required: true },
+    ranker: { type: String, required: true },
+    pagination: { type: Number, default: 10 },
+    showValues: { type: Boolean, default: false },
+    selectable: { type: Boolean, default: false },
+    unitPrefix: { type: String, default: '' },
+    unitSuffix: { type: String, default: '' },
+  },
+  setup(props) {
+    const page = ref(0);
+    const pages = computed(() => Math.ceil(props.list.length / props.pagination));
+
+    const rank = computed(() => {
+      const offset = page.value * props.pagination;
+      return [...props.list]
+        .sort((a, b) => {
+          const aAttr = objpath(a, props.ranker);
+          const bAttr = objpath(b, props.ranker);
+          const isNumber = typeof aAttr === 'number' || typeof bAttr === 'number';
+          return isNumber ? bAttr - aAttr : aAttr.localeCompare(bAttr);
+        })
+        .map((item, i) => {
+          const _value = objpath(item, props.ranker); // eslint-disable-line no-underscore-dangle
+          return { ...item, _value, _rank: i + 1 };
+        })
+        .slice(offset, props.pagination ? offset + props.pagination : props.list.length);
+    });
+
+    return { rank, pages, page };
+  },
 };
 </script>
-
-<style lang="scss" scoped>
-.ranking {
-	&__list {
-		width: 100%;
-		margin: 10px 0;
-
-		tr + tr { border-top: 1px solid #e7e9f1; }
-
-		td {
-			width: auto;
-			padding: 7px;
-			vertical-align: middle;
-		}
-	}
-
-	&__rank,
-	&__more {
-		font-size: 0.9em;
-		color: #aaa;
-		width: 1% !important;
-		white-space: nowrap;
-	}
-
-	&__value {
-		text-align: right;
-		font-weight: bold;
-		width: 40% !important;
-		color: #461ea3;
-		font-size: 0.8em;
-		width: 1% !important;
-		white-space: nowrap;
-	}
-
-	.selector {
-		cursor: pointer;
-	}
-}
-</style>

@@ -1,0 +1,11 @@
+.toast-center {
+  left: 50%;
+  top: 2rem;
+  transform: translateX(-50%);
+
+  .toast {
+    padding: 1rem 1.5rem;
+    margin: 3px;
+    border: 1px solid currentColor;
+  }
+}

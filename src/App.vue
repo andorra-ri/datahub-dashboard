@@ -1,19 +1,15 @@
 <template>
-	<div id="app">
-		<nav-bar />
-		<router-view />
-	</div>
+  <nav-bar />
+  <router-view />
+  <toast-center />
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue';
+import NavBar from '/@/components/NavBar.vue';
+import ToastCenter from '/@/components/ToastCenter.vue';
 
 export default {
-	name: 'innohub',
-	components: { NavBar },
+  name: 'App',
+  components: { NavBar, ToastCenter },
 };
 </script>
-
-<style lang="scss">
-@import '@/styles/index.scss';
-</style>

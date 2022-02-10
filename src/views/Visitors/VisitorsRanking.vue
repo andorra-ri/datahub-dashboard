@@ -1,79 +1,44 @@
-<template lang="html">
-	<section :class="['card', 'card--round', { 'loading': loading }]">
-		<h2><i class="icon mdi mdi-trophy" /> {{ $t('visitors.countries_ranking.title') }}</h2>
-		<fieldset class="picker content--right">
-			<label>
-				<input type="radio" v-model="ranker" value="visitors.total" />
-				<span>Total</span>
-			</label>
-			<label>
-				<input type="radio" v-model="ranker" value="visitors.trippers" />
-				<span>{{ $t('visitors.group.trippers') }}</span>
-			</label>
-			<label>
-				<input type="radio" v-model="ranker" value="visitors.tourists" />
-				<span>{{ $t('visitors.group.tourists') }}</span>
-			</label>
-		</fieldset>
-		<ranking
-			:list="filteredCountries"
-			:ranker="ranker"
-			:pagination="20"
-			show-values>
-			<template v-slot="{ item }">
-				<i :class="`flag flag-${item.code} margin-r-1`" />
-				{{ $t(`countries.${item.code}`) }}
-			</template>
-		</ranking>
-	</section>
+<template>
+  <section :class="['card', 'card--round', { 'loading': loading }]">
+    <h2><i class="icon mdi mdi-trophy" /> {{ t('visitors.ranking.title') }}</h2>
+    <picker v-model="ranker" :options="rankers" class="content--right" />
+    <ranking
+      :list="countries"
+      :ranker="ranker"
+      :pagination="10"
+      show-values
+      :unit-suffix="t('units.people')">
+      <template #default="{ item }">
+        <i :class="`flag flag-${item.code} margin-r-1`" />
+        {{ item.name }}
+      </template>
+    </ranking>
+  </section>
 </template>
 
 <script>
-import datahub from '@/api/datahub';
-import Ranking from '@/components/Ranking.vue';
+import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { isWaitingFor } from '/@/services/wait';
+import { countries } from '/@/repositories/visitors';
+import Ranking from '/@/components/Ranking.vue';
+import Picker from '/@/components/Picker.vue';
 
-const sumObject = object => Object.values(object).reduce((sum, value) => sum + value, 0);
+const rankers = ['visitors.uniques', 'visitors.trippers', 'visitors.tourists'];
 
 export default {
-	name: 'visitors-ranking',
-	components: { Ranking },
-	props: {
-		dates: { type: Object, required: true },
-		filters: { type: Object, default: () => {} },
-	},
-	data() {
-		return {
-			loading: false,
-			countries: [],
-			ranker: 'visitors.total',
-		};
-	},
-	computed: {
-		filteredCountries() {
-			const { countries } = this.filters;
-			return this.countries
-				.filter(({ code }) => !countries.length || countries.includes(code))
-				.map((country) => {
-					const visitors = { ...country.visitors, total: sumObject(country.visitors) };
-					const visits = { ...country.visits, total: sumObject(country.visits) };
-					return { ...country, visitors, visits };
-				});
-		},
-	},
-	watch: {
-		dates: {
-			immediate: true,
-			handler({ since, until }) {
-				if (!since || !until) return;
-				const filter = `since=${since.toISOString()}&until=${until.toISOString()}`;
-				const endpoint = `/visitors/summary?${filter}`;
-				this.loading = true;
-				datahub.get(endpoint).then(({ data }) => {
-					this.countries = data;
-					this.loading = false;
-				});
-			},
-		},
-	},
+  name: 'VisitorsRanking',
+  components: { Ranking, Picker },
+  setup() {
+    const { t } = useI18n();
+    const ranker = ref('visitors.uniques');
+    const loading = isWaitingFor('load-visitors');
+
+    return { t, loading, countries, rankers, ranker };
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+.picker { margin: 20px 0 10px; }
+</style>

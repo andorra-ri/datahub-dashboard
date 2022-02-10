@@ -1,29 +1,20 @@
-# innohub
+# InnoHub dashboard
 
-## Project setup
-```
-npm install
-```
+## Contribute
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Clone the repo, create a new branch from `dev` to commit your changes and make a pull request again to `dev`.
 
-### Compiles and minifies for production
-```
-npm run build
+```bash
+git clone https://github.com/andorra-ri/datahub-dashboard/
+cd datahub-dashboard
+npm run install
+npm run dev
 ```
 
-### Run your tests
-```
-npm run test
+Remember to create a `.env` file in the root directory and set the following environment variables.
+
+```env
+VITE_DATAHUB_API_URL=
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+A code review process will start after the pull request is made.

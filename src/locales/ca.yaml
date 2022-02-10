@@ -1,0 +1,311 @@
+visitors:
+  title: Visitants
+  section: Turisme
+
+  profile: Perfil del visitant
+  visitors: Visitants
+  tourists: Turistes
+  trippers: Excursionistes
+  uniques: Únics
+  visits: Visites
+  overnights: Pernoctacions
+
+  spending: Despesa econòmica
+  spending_disclaimer: Les dades mostrades corresponen a perfils genèrics de pagaments realitzats únicament amb VISA.
+  
+  # Historic
+  historic:
+    title: Històric de visites
+  
+  # Ranking
+  ranking:
+    title: Ranking per països
+
+  # Stats
+  stats:
+    title: Estadístiques per país
+    selectCountry: Selecciona un país
+    noOptions: No hi ha cap opció disponible
+
+    visitors: Visitants
+    visits: Visites
+    loyalty: Fidelització
+    overnights: Pernoctacions
+    overnightsMean: Mitja pernoctacions
+    total: Total
+    mean: Despesa mitja
+
+    merchant:
+      MTR: Viatges
+      MDP: Farmàcia
+      MFU: Combustible
+      MLO: Allotjament
+      MRE: Restauració
+      MFG: Queviures
+      MEN: Entreteniment
+      MAA: Moda
+      MDS: Centres Comercials
+      MRG: Minorista
+      MOT: Altres
+
+filters:
+  title: Filtres
+  period: Periode
+  origin: Origen
+  filter: Aplicar filtres
+
+  selectCountry: Selecciona un país
+  noOptions: No hi ha cap opció disponible
+
+units:
+  people: persones
+  visits: visites
+  visitsPerson: visites / persona
+  nights: nits
+  nightsPerson: nits / persona
+  nightsVisit: nits / visita
+  euro: €
+
+errors:
+  LONG_PERIOD: Error! El periode a analitzar és massa extens
+
+countries:
+  unknown: Desconegut
+  ad: Andorra
+  ae: Emirats Àrabs Units
+  af: Afganistan
+  ag: Antigua i Barbuda
+  ai: Anguilla
+  al: Albània
+  am: Armènia
+  an: Antilles Neerlandeses
+  ao: Angola
+  ar: Argentina
+  as: Samoa Americana
+  at: Àustria
+  au: Austràlia
+  aw: Aruba
+  ax: Illes Åland
+  az: Azerbaidjan
+  ba: Bòsnia i Hercegovina
+  bb: Barbados
+  bd: Bangladesh
+  be: Bèlgica
+  bf: Burkina Faso
+  bg: Bulgària
+  bh: Bahrain
+  bi: Burundi
+  bj: Benín
+  bl: Saint-Barthélemy
+  bm: Bermudes
+  bn: Brunei
+  bo: Bolívia
+  br: Brasil
+  bs: Bahames
+  bt: Bhutan
+  bw: Botswana
+  by: Bielorússia
+  bz: Belize
+  ca: Canadà
+  cc: Illes Cocos
+  cd: República Democràtica del Congo
+  cf: República Centreafricana
+  cg: República del Congo
+  ch: Suïssa
+  ci: Costa d'Ivori
+  ck: Illes Cook
+  cl: Xile
+  cm: Camerun
+  cn: Xina
+  co: Colòmbia
+  cr: Costa Rica
+  cu: Cuba
+  cv: Cap Verd
+  cw: Curaçao
+  cx: Illa Christmas
+  cy: Xipre
+  cz: República Txeca
+  de: Alemanya
+  dj: Djibouti
+  dk: Dinamarca
+  dm: Dominica
+  do: República Dominicana
+  dz: Algèria
+  ec: Equador
+  ee: Estònia
+  eg: Egipte
+  eh: Sàhara Occidental
+  en: Anglaterra
+  er: Eritrea
+  es: Espanya
+  et: Etiòpia
+  eu: Unió Europea
+  fg: Guaiana Francesa
+  fi: Finlàndia
+  fj: Fiji
+  fk: Illes Malvines
+  fm: Micronèsia
+  fo: Illes Faroe
+  fr: França
+  ga: Gabon
+  gb: Regne Unit
+  gd: Grenada
+  ge: Geòrgia
+  gg: Guernsey
+  gh: Ghana
+  gi: Gibraltar
+  gl: Groenlàndia
+  gm: Gàmbia
+  gn: Guinea
+  gp: Guadalupe
+  gq: Guinea Equatorial
+  gr: Grècia
+  gt: Guatemala
+  gu: Guam
+  gw: Guinea-Bissau
+  gy: Guaiana
+  hk: Hong Kong
+  hn: Hondures
+  hr: Croàcia
+  ht: Haití
+  hu: Hongria
+  id: Indonèsia
+  ie: Irlanda
+  il: Israel
+  im: Illa de Man
+  in: Índia
+  io: Territori Britànic de l'Oceà Índic
+  iq: Iraq
+  ir: Iran
+  is: Islàndia
+  it: Itàlia
+  je: Jersey
+  jm: Jamaica
+  jo: Jordània
+  jp: Japó
+  ke: Kènia
+  kg: Kirguizistan
+  kh: Cambodja
+  ki: Kiribati
+  km: Comores
+  kn: Saint Christopher i Nevis
+  kp: Corea del Nord
+  kr: Corea del Sud
+  kw: Kuwait
+  ky: Illes Caiman
+  kz: Kazakhstan
+  la: Laos
+  lb: Líban
+  lc: Saint Lucia
+  li: Liechtenstein
+  lk: Sri Lanka
+  lr: Libèria
+  ls: Lesotho
+  lt: Lituània
+  lu: Luxemburg
+  lv: Letònia
+  ly: Líbia
+  ma: Marroc
+  mc: Mònaco
+  md: Moldàvia
+  me: Montenegro
+  mg: Madagascar
+  mh: Illes Marshall
+  mk: Macedònia del Nord
+  ml: Mali
+  mm: Birmània
+  mn: Mongòlia
+  mo: Macau
+  mp: Illes Mariannes Septentrionals
+  mq: Martinica
+  mr: Mauritània
+  ms: Montserrat
+  mt: Malta
+  mu: Maurici
+  mv: Maldives
+  mw: Malawi
+  mx: Mèxic
+  my: Malàisia
+  mz: Moçambic
+  na: Namíbia
+  nc: Nova Caledònia
+  ne: Níger
+  nf: Illa Norfolk
+  ng: Nigèria
+  ni: Nicaragua
+  nl: Holanda
+  no: Noruega
+  np: Nepal
+  nr: Nauru
+  nu: Niue
+  nz: Nova Zelanda
+  om: Oman
+  pa: Panamà
+  pe: Perú
+  pf: Polinèsia Francesa
+  pg: Papua Nova Guinea
+  ph: Filipines
+  pk: Pakistan
+  pl: Polònia
+  pn: Illes Pitcairn
+  pr: Puerto Rico
+  ps: Palestina
+  pt: Portugal
+  pw: Palau
+  py: Paraguai
+  qa: Qatar
+  re: Illa de la Reunió
+  ro: Romania
+  rs: Sèrbia
+  ru: Rússia
+  rw: Ruanda
+  sa: Aràbia Saudita
+  sb: Salomó
+  sc: Seychelles
+  sd: Sudan
+  se: Suècia
+  sg: Singapur
+  si: Eslovènia
+  sk: Eslovàquia
+  sl: Sierra Leone
+  sm: San Marino
+  sn: Senegal
+  so: Somàlia
+  sr: Surinam
+  ss: Sudan del Sud
+  st: São Tomé i Príncipe
+  sv: El Salvador
+  sx: Sint Maarten
+  sy: Síria
+  sz: Swazilàndia
+  tc: Illes Turks i Caicos
+  td: Txad
+  tg: Togo
+  th: Tailàndia
+  tj: Tadjikistan
+  tk: Tokelau
+  tm: Turkmenistan
+  tn: Tunísia
+  to: Tonga
+  tr: Turquia
+  tt: Trinitat i Tobago
+  tv: Tuvalu
+  tw: Taiwan
+  tz: Tanzània
+  ua: Ucraïna
+  ug: Uganda
+  un: Nacions Unides
+  us: Estats Units d'Amèrica
+  uy: Uruguai
+  uz: Uzbekistan
+  va: Ciutat del Vaticà
+  vc: Saint Vincent i les Grenadines
+  ve: Veneçuela
+  vg: Illes Verges Britàniques
+  vn: Vietnam
+  vu: Vanuatu
+  ws: Samoa
+  ye: Iemen
+  za: Sud-àfrica
+  zm: Zàmbia
+  zw: Zimbàbue

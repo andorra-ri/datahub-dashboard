@@ -1,23 +1,23 @@
 $flags: ad, ae, af, ag, ai, al, am, an, ao, ar, as, at, au, aw, ax, az, ba, bb, bd, be, bf, bg, bh, bi, bj, bl, bm, bn, bo, br, bs, bt, bw, by, bz, ca, cc, cd, cf, cg, ch, ci, ck, cl, cm, cn, co, cr, cu, cv, cw, cx, cy, cz, de, dj, dk, dm, do, dz, ec, ee, eg, eh, en, er, es, et, eu, fg, fi, fj, fk, fm, fo, fr, ga, gb, gd, ge, gg, gh, gi, gl, gm, gn, gp, gq, gr, gt, gu, gw, gy, hk, hn, hr, ht, hu, id, ie, il, im, in, io, iq, ir, is, it, je, jm, jo, jp, ke, kg, kh, ki, km, kn, kp, kr, kw, ky, kz, la, lb, lc, li, lk, lr, ls, lt, lu, lv, ly, ma, mc, md, me, mg, mh, mk, ml, mm, mn, mo, mp, mq, mr, ms, mt, mu, mv, mw, mx, my, mz, na, nc, ne, nf, ng, ni, nl, no, np, nr, nu, nz, om, pa, pe, pf, pg, ph, pk, pl, pn, pr, ps, pt, pw, py, qa, re, ro, rs, ru, rw, sa, sb, sc, sd, se, sg, si, sk, sl, sm, sn, so, sr, ss, st, sv, sx, sy, sz, tc, td, tg, th, tj, tk, tm, tn, to, tr, tt, tv, tw, tz, ua, ug, un, us, uy, uz, va, vc, ve, vg, vn, vu, ws, ye, za, zm, zw;
 
 .flag {
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: 100% auto;
-	display: inline-block;
-	height: 18px;
-	margin-top: -2px;
-	vertical-align: middle;
-	width: 18px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 18px;
+  margin-top: -2px;
+  vertical-align: middle;
+  width: 18px;
 
-	&--big {
-		height: 40px;
-		width: 40px;
-	}
+  &--big {
+    height: 40px;
+    width: 40px;
+  }
 
-	@each $flag in $flags { // stylelint-disable-line
-		&-#{$flag} { background-image: url('./assets/img/icons/flags/#{$flag}.svg'); }
-	}
+  @each $flag in $flags { // stylelint-disable-line
+    &-#{$flag} { background-image: url('/flags/#{$flag}.svg'); }
+  }
 
-	&-unknown { background-image: url('./assets/img/icons/flags/pirate.svg'); }
+  &-unknown { background-image: url('./flags/pirate.svg'); }
 }
