@@ -1,7 +1,10 @@
 import { ref, computed, reactive, watch } from 'vue';
 import api from '/@/services/datahub';
 import { waitTask } from '/@/services/wait';
+import { catchToast } from '/@/services/toasts';
 import i18n from '/@/i18n';
+
+const timeoutErrorFormat = error => (error.message.match(/timeout/i) ? i18n.global.t('errors.LONG_PERIOD') : error.message);
 
 const COUNTRIES = ref([]);
 const HISTORIC = ref({});
@@ -28,20 +31,20 @@ export const historic = computed(() => {
   return { ...HISTORIC.value, dates };
 });
 
-export const loadVisitors = waitTask(async ({ since, until }) => {
+export const loadVisitors = waitTask(catchToast(async ({ since, until }) => {
   const dates = `since=${since.toISOString()}&until=${until.toISOString()}`;
   const { data } = await api.get(`/visitors/summary/?${dates}`);
   COUNTRIES.value = data.map(country => {
     const name = i18n.global.t(`countries.${country.code}`);
     return { name, ...country };
   });
-}, 'load-visitors');
+}, { format: timeoutErrorFormat }), 'load-visitors');
 
-export const loadHistoric = waitTask(async ({ since, until }) => {
+export const loadHistoric = waitTask(catchToast(async ({ since, until }) => {
   const dates = `since=${since.toISOString()}&until=${until.toISOString()}`;
   const { data } = await api.get(`/visitors/historic/?${dates}`);
   HISTORIC.value = data;
-}, 'load-visitors-historic');
+}, { format: timeoutErrorFormat }), 'load-visitors-historic');
 
 watch(() => filters.period, async period => {
   const [since, until] = [...period].sort((a, b) => a - b);

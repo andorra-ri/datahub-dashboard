@@ -66,6 +66,9 @@ units:
   nightsVisit: nits / visita
   euro: €
 
+errors:
+  LONG_PERIOD: Error! El periode a analitzar és massa extens
+
 countries:
   unknown: Desconegut
   ad: Andorra
