@@ -12,7 +12,7 @@ export default createRouter({
     {
       path: '/visitants',
       name: 'visitors',
-      component: () => import('./views/visitors/Visitors.vue'),
+      component: () => import('./views/Visitors/Visitors.vue'),
     },
   ],
 });
