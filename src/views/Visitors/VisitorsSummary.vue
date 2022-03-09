@@ -46,6 +46,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.row { flex-wrap: wrap; }
+
 .summary__item {
   h2 {
     margin: 0;
