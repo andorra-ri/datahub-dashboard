@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// Airtable API connection
 export default axios.create({
-  baseURL: import.meta.env.VITE_DATAHUB_API_URL,
+  baseURL: '/api/v0.1',
   timeout: 60000,
 });
