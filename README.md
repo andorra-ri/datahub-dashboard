@@ -15,10 +15,4 @@ npm run install
 npm run dev
 ```
 
-Remember to create a `.env` file in the root directory and set the following environment variables.
-
-```env
-VITE_DATAHUB_API_URL=
-```
-
 When all changes are finished create a pull request to `dev` to start a code review process.
